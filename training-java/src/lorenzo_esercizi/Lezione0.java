@@ -8,10 +8,14 @@ public class Lezione0 {
 
     int varIstanza; //Variabile di Istanza
 
+    // Final:
+    // Il valore che viene assegnato non può più cambiare
     static final double PI_GRECO = 3.14159265358979323846;
     static final String PRIMO_GIORNO_DELLA_SETTIMANA = "lunedì";
 
 
+    // Static:
+    // crea una cella di memoria che sarà sempre assegnata alla variabile o costante fino a quando esiste l’applicazione.
     public static void main(String[] args) {
 
         //richiamo metodo calcola somma con input
