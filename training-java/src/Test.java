@@ -24,4 +24,20 @@ public class Test {
         }
 
     }
+
+    public boolean sommaPari(int x, float y) {
+
+        if(y != Math.floor(y)) {
+            return false;
+        }
+
+        float somma = x+y;
+
+        if(somma%2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
