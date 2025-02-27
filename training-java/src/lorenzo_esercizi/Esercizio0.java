@@ -2,12 +2,12 @@ package lorenzo_esercizi;
 
 public class Esercizio0 {
 
-    //firma del metodo
-    // 1. modificatore di visibilità
-    // 2. tipo di ritorno
-    // 3. nome del metodo
-    // 4. eventuali parametri in ingresso
-    //corpo del metodo
+    // Firma del metodo
+    // 1. modificatore di visibilità (public)
+    // 2. tipo di ritorno (int)
+    // 3. nome del metodo (sottrazione)
+    // 4. eventuali parametri in ingresso (int x, int y)
+    // corpo del metodo
 
     public int sottrazione(int x, int y) {
         int risultato = x-y;
