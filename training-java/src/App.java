@@ -33,7 +33,7 @@ public class App {
         k= 1.23f;
         System.out.println("il valore di k é:"+k);
         b= true;
-        l = 'c';
+        l = 'c'; // per carattere singolo si usano apici singoli
 
         int numeroIntero = 7; // Dichiarazione ed inizializzazione
 
@@ -42,7 +42,7 @@ public class App {
 
         // ciclo for
 
-        for(int i=0; i<10; i++){
+        for (int i=0; i<10; i++){
 
         }
 
