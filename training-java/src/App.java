@@ -19,6 +19,24 @@ public class App {
         int risultato = calcolaSommaDaInput(3,6);
         System.out.printf("Risultato: %d\n", risultato);
 
+        //richiamo il metodo calcolaPari
+
+        Test test = new Test();
+        boolean result = test.sommaPari(1, 3.2f);
+
+        //Creo 2 uomini diversi
+        Uomo mattia = new Uomo();
+        mattia.setNome("mattia");
+        mattia.setCognome("Pacifico");
+
+        System.out.println("------------------------"+ mattia);
+
+        Uomo tommaso = new Uomo();
+        tommaso.setNome("tommaso");
+        tommaso.setCognome("traviganti");
+
+        System.out.println("------------------------"+ tommaso);
+
         // DICHIARAZIONE TIPI DI DATO PRIMITIVI
 
         int x; // numeri interi 32 bit
