@@ -7,6 +7,10 @@ public class Test {
     // 4. eventuali parametri in ingresso
     //corpo del metodo
 
+    // Ogni volta che creiamo una classe bisogna creare un costruttore
+    public Test() {
+    }
+
     public int sottrazione(int x, int y) {
         int risultato = x-y;
         return risultato;
