@@ -15,6 +15,10 @@ public class App {
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
 
+        //richiamo metodo calcola somma con input
+        int risultato = calcolaSommaDaInput(3,6);
+        System.out.printf("Risultato: %d\n", risultato);
+
         // DICHIARAZIONE TIPI DI DATO PRIMITIVI
 
         int x; // numeri interi 32 bit
@@ -28,25 +32,83 @@ public class App {
 
         x = -3;
         y = 1.23;
-        System.out.println("il valore di y é:"+y);
+        System.out.println("il valore di y é:" + y);
         j = 4;
+
         k= 1.23f;
         System.out.println("il valore di k é:"+k);
         b= true;
         l = 'c'; // per carattere singolo si usano apici singoli
 
+
         int numeroIntero = 7; // Dichiarazione ed inizializzazione
 
         // tipo di dato ----- nome della variabile --- assegnazione di valore ---- valore
-            int               numIntero                            =                 4;
+        int numIntero = 4;
 
         // ciclo for
 
+
         for (int i=0; i<10; i++){
+
 
         }
 
-        String s;
+        // IF ELSE
+
+        int firstNumber = 3;
+        int secondNumber = 2;
+        int thirdNumber = 7;
+
+        switch (thirdNumber) {
+            case 1:
+                System.out.println("----->" + 1);
+                break;
+            case 2:
+                System.out.println("----->" + 2);
+                break;
+            case 3:
+                System.out.println("----->" + 3);
+                break;
+            default:
+                System.out.println("nessuno dei precedenti");
+        }
+
+
+        if (firstNumber == secondNumber) {
+            System.out.println("first number equals second number");
+        } else if (firstNumber > secondNumber) {
+            System.out.println("maggiore del secondo");
+        } else if (secondNumber % 2 == 0) {
+            System.out.println("condizione è vera");
+        } else {
+            System.out.println("not equals");
+        }
+
+        if (firstNumber == secondNumber) {
+            System.out.println("first number equals second number");
+        }
+
+        if (firstNumber > secondNumber) {
+            System.out.println("maggiore del secondo");
+        }
+
+        if (secondNumber % 2 == 0) {
+            System.out.println("condizione è vera");
+        }
+
+        String s = "casa";
+        String n = "ciao";
+
+        int num = 3;
+
+
+        // s == n si traduce con "s è una stringa come n?"
+        // s.queals(n) si traduce con "è vero che s e n hanno lo stesso valore?"
+
+        while (s.equals(n)) {
+            System.out.println(true);
+        }
 
 
         for (int i = 1; i <= 5; i++) {
@@ -54,5 +116,28 @@ public class App {
             System.out.println("i = " + i);
             System.out.println("i = " + i++);
         }
+
+
+    }
+
+    // modificatore di visibilità - tipo di ritorno - nome del metodo
+    public int calcolaSomma() {  //senza parametri in ingresso
+        int primoAddendo = 2;
+        int secondoAddendo = 1;
+
+        int somma = primoAddendo + secondoAddendo;
+
+        return somma;
+    }
+
+    int parSin = 3;
+    int parDes = 4;
+
+    // metodo con parametri in ingresso
+    public static int calcolaSommaDaInput(int x, int y) {  //senza parametri in ingresso
+
+        int somma = x + y;
+
+        return somma;
     }
 }
