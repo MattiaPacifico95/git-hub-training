@@ -1,0 +1,15 @@
+{
+"Name": "Github-training",
+
+"Release Versions": "1.0.0 [Release Update]",
+
+"Release Building": "Github-training-1.0.0:BUILDING:27.02.2025a",
+
+"Nightly Building": "Github-training-1.0.0:NIGHTLY_BUILDING_27.02.2025.11010a_[main]",
+
+"Github_Tag": "0a",
+
+"Github":"https://github.com/MattiaPacifico95/git-hube-training",
+
+"Website":""
+}
