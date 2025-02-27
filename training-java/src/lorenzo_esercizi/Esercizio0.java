@@ -25,7 +25,9 @@ public class Esercizio0 {
             System.out.println("le stringhe sono uguali");
             // Se le due stringe sono ugualli allora è vero e stampa print
             return true;
-        // else (Traduzione: altrimenti) stampa print se è su False
+//          ^ s è un contenitore Stringa quindi serve un metodo (creato da altri)
+//      if (s^.equals(confronto))
+
         } else {
             System.out.println("le stringhe non sono uguali");
             return false;
