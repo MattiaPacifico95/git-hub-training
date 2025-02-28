@@ -135,6 +135,9 @@ public class App {
             System.out.println("i = " + i++);
         }
 
+        Car automobile = new Car("azzurro");
+        System.out.println("Colore della macchina: "+automobile.getColore());
+
 
     }
 
