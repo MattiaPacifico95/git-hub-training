@@ -1,11 +1,11 @@
 public class Test {
 
-    //firma del metodo
+    // Firma del metodo
     // 1. modificatore di visibilità
     // 2. tipo di ritorno
     // 3. nome del metodo
     // 4. eventuali parametri in ingresso
-    //corpo del metodo
+    // corpo del metodo
 
     // Ogni volta che creiamo una classe bisogna creare un costruttore
     public Test() {
