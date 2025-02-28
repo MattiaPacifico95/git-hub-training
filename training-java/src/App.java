@@ -149,6 +149,7 @@ public class App {
         System.out.println("Colore della macchina: "+automobile.getColore());
         automobile.setNRuote(4);
         System.out.println("Numero di ruote: "+automobile.getNRuote());
+        automobile.clacson();
 
 
     }
