@@ -1,7 +1,7 @@
 public class Car {
 
-    public Car() {
-
+    public Car(String primoColore) {
+        setColore(primoColore);
     }
 
     private String colore;
