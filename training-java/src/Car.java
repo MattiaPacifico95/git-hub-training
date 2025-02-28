@@ -14,4 +14,9 @@ public class Car extends Vehicle {
     public String getColore() {
         return colore;
     }
+
+    @Override
+    public void clacson() {
+        System.out.println("Beep beep");
+    }
 }
