@@ -14,4 +14,8 @@ public class Vehicle {
 
         return nRuote;
     }
+
+    public void clacson() {
+        System.out.println("Suono clacson generico");
+    }
 }
