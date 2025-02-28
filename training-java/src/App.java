@@ -140,6 +140,7 @@ public class App {
         automobile.setNRuote(4);
         System.out.println("Numero di ruote: "+automobile.getNRuote());
         automobile.clacson();
+        System.out.println(automobile.turbo());
 
 
     }
