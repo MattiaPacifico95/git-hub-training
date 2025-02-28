@@ -1,4 +1,4 @@
-public class Car implements Vehicle {
+public class Car implements Vehicle, Racing {
 
     // METODI INTERFACCIA VEHICLE
     public int nRuote;
@@ -15,6 +15,11 @@ public class Car implements Vehicle {
 
     public void clacson() {
         System.out.println("Beep beep");
+    }
+
+    // METODI INTERFACCIA RACING
+    public boolean turbo() {
+        return true;
     }
 
     // METODI E PROPRIETA' CAR
