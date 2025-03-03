@@ -1,7 +1,8 @@
 package org.mavenexample;
 
+//Tipo Generico, si usa <T>, il contenuto non è ancora stato definito
 public class Bottiglia<T> {
-    private T contenuto;
+    private final T contenuto;
 
     // Costruttore
     public Bottiglia(T t){
