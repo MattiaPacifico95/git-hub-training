@@ -52,16 +52,17 @@ public class App {
         b = true;
         l = 'c';
 
-//        String str;
-//        try {
-//        str = null;
-//        int length = str.length(); // NullPointerException
-//        } catch (NullPointerException e) {
-//            System.out.println("Errore:" + e.getMessage());
-//        }
-//        if(str != null){
-//            int length = str.length();
-//        }else
+// Errori con Try
+        String str = null;
+        try {
+        str = null;
+        int length = str.length(); // NullPointerException
+        } catch (NullPointerException e) {
+            System.out.println("Errore:" + e.getMessage());
+        }
+        if(str != null){
+            int length = str.length();
+        }else
             {
 
         }
