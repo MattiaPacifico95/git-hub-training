@@ -1,3 +1,5 @@
+import Entities.UserEntity;
+
 import javax.xml.transform.stream.StreamSource;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -9,15 +11,41 @@ public class App {
     static final double PI_GRECO = 3.14159265358979323846;
     static final String PRIMO_GIORNO_DELLA_SETTIMANA = "lunedì";
 
-
+/*
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
 
+        UserEntity u = new UserEntity();
+        u.setNome("Mattia");
+        UserEntity u2 = new UserEntity();
+        u2.setNome("Leonardo");
+
+        boolean confronto = u.equals(u2);
+        System.out.println("-----------"+u);
+
         //richiamo metodo calcola somma con input
         int risultato = calcolaSommaDaInput(3,6);
         System.out.printf("Risultato: %d\n", risultato);
+
+        //richiamo il metodo calcolaPari
+
+        Test test = new Test();
+        boolean result = test.sommaPari(1, 3.2f);
+
+        //Creo 2 uomini diversi
+        Uomo mattia = new Uomo();
+        mattia.setNome("mattia");
+        mattia.setCognome("Pacifico");
+
+        System.out.println("------------------------"+ mattia);
+
+        Uomo tommaso = new Uomo();
+        tommaso.setNome("tommaso");
+        tommaso.setCognome("traviganti");
+
+        System.out.println("------------------------"+ tommaso);
 
         // DICHIARAZIONE TIPI DI DATO PRIMITIVI
 
@@ -34,10 +62,12 @@ public class App {
         y = 1.23;
         System.out.println("il valore di y é:" + y);
         j = 4;
-        k = 1.23f;
-        System.out.println("il valore di k é:" + k);
-        b = true;
-        l = 'c';
+
+        k= 1.23f;
+        System.out.println("il valore di k é:"+k);
+        b= true;
+        l = 'c'; // per carattere singolo si usano apici singoli
+
 
         int numeroIntero = 7; // Dichiarazione ed inizializzazione
 
@@ -46,7 +76,11 @@ public class App {
 
         // ciclo for
 
-        for (int i = 0; i < 10; i++) {
+
+        for (int i=0; i<10; i++){
+
+
+            // test ciclo
 
         }
 
@@ -136,4 +170,6 @@ public class App {
 
         return somma;
     }
+
+ */
 }
