@@ -9,6 +9,11 @@ public class Test {
     // 4. eventuali parametri in ingresso
     //corpo del metodo
 
+    int istanza;
+
+    public Test() {
+    }
+
     public int sottrazione(int x, int y) {
         int risultato = x-y;
         return risultato;
@@ -27,6 +32,7 @@ public class Test {
 
 
     }
+
  public boolean sommaPari (int x, float y) {
         if (y!=Math.floor(y)) {
             return false;
@@ -39,4 +45,7 @@ public class Test {
             return false;
         }
  }
-}
+
+
+    }
+    
