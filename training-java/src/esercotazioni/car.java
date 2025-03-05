@@ -1,4 +1,6 @@
-public class car implements veicolo, competizione{
+package esercotazioni;
+
+public class car implements veicolo, competizione {
 
     private String color;
     private int nruote;
