@@ -1,3 +1,5 @@
+package esercotazioni;
+
 public interface veicolo {
    int ruote = 0;
 
