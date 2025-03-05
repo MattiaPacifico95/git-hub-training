@@ -1,3 +1,5 @@
+import Entities.UserEntity;
+
 import javax.xml.transform.stream.StreamSource;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -9,11 +11,19 @@ public class App {
     static final double PI_GRECO = 3.14159265358979323846;
     static final String PRIMO_GIORNO_DELLA_SETTIMANA = "lunedì";
 
-
+/*
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
+
+        UserEntity u = new UserEntity();
+        u.setNome("Mattia");
+        UserEntity u2 = new UserEntity();
+        u2.setNome("Leonardo");
+
+        boolean confronto = u.equals(u2);
+        System.out.println("-----------"+u);
 
         //richiamo metodo calcola somma con input
         int risultato = calcolaSommaDaInput(3,6);
@@ -69,6 +79,8 @@ public class App {
 
         for (int i=0; i<10; i++){
 
+
+            // test ciclo
 
         }
 
@@ -158,4 +170,6 @@ public class App {
 
         return somma;
     }
+
+ */
 }
