@@ -11,6 +11,11 @@ public class Test {
     public Test() {
     }
 
+    int istanza;
+
+    public Test() {
+    }
+
     public int sottrazione(int x, int y) {
         int risultato = x-y;
         return risultato;
@@ -36,5 +41,25 @@ public class Test {
             System.out.println("le stringhe non sono uguali");
             return false;
         }
+    }
+
+    public boolean sommaPari(int x, float y) {
+
+        if(y != Math.floor(y)) {
+            /* SE IL DECIMALE CHE VADO AD APPROSSIMARE E' DIVERSO
+                DAL CORRISPONDENTE INTERO SENZA LA VIRGOLA, DI SICURO
+                LA SOMMA NON SARà MAI PARI
+             */
+            return false;
+        }
+
+        float somma = x+y;
+
+        if(somma%2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

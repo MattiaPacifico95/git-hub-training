@@ -1,8 +1,13 @@
+
 import lorenzo_esercizi.Car;
 import lorenzo_esercizi.Racing;
 import lorenzo_esercizi.Vehicle;
 
 import java.io.*;
+
+import Entities.UserEntity;
+
+
 import javax.xml.transform.stream.StreamSource;
 
 public class App {
@@ -12,17 +17,30 @@ public class App {
     static final double PI_GRECO = 3.14159265358979323846;
     static final String PRIMO_GIORNO_DELLA_SETTIMANA = "lunedì";
 
+
     // Encapsulation
     // public class animals(){
     //    private int tail;
 
 
+
+/*
+>>>>>>> develop
     public static void main(String[] args) {
+
+        UserEntity u = new UserEntity();
+        u.setNome("Mattia");
+        UserEntity u2 = new UserEntity();
+        u2.setNome("Leonardo");
+
+        boolean confronto = u.equals(u2);
+        System.out.println("-----------"+u);
 
         //richiamo metodo calcola somma con input
         int risultato = calcolaSommaDaInput(3,6);
         System.out.printf("Risultato: %d\n", risultato);
 
+<<<<<<< HEAD
         Car Panda = new Car("blu" + "\n");
         // Vehicle Test = new Vehicle();
         System.out.printf("La macchina è " + Panda.getColor() + "\n");
@@ -31,6 +49,25 @@ public class App {
         Panda.setWheels(4);
         System.out.printf("Le ruote sono " + Panda.getWheels() + "\n");
         System.out.printf( "Turbo: " + Panda.turbo() + "\n");
+=======
+        //richiamo il metodo calcolaPari
+
+        Test test = new Test();
+        boolean result = test.sommaPari(1, 3.2f);
+
+        //Creo 2 uomini diversi
+        Uomo mattia = new Uomo();
+        mattia.setNome("mattia");
+        mattia.setCognome("Pacifico");
+
+        System.out.println("------------------------"+ mattia);
+
+        Uomo tommaso = new Uomo();
+        tommaso.setNome("tommaso");
+        tommaso.setCognome("traviganti");
+
+        System.out.println("------------------------"+ tommaso);
+>>>>>>> develop
 
         // DICHIARAZIONE TIPI DI DATO PRIMITIVI
 
@@ -47,10 +84,19 @@ public class App {
         y = 1.23;
         System.out.println("il valore di y é:" + y + "\n");
         j = 4;
+<<<<<<< HEAD
         k = 1.23f;
         System.out.println("il valore di k é:" + k + "\n");
         b = true;
         l = 'c';
+=======
+
+        k= 1.23f;
+        System.out.println("il valore di k é:"+k);
+        b= true;
+        l = 'c'; // per carattere singolo si usano apici singoli
+
+>>>>>>> develop
 
 // Errori con Try
         String str = null;
@@ -74,7 +120,11 @@ public class App {
 
         // ciclo for
 
-        for (int i = 0; i < 10; i++) {
+
+        for (int i=0; i<10; i++){
+
+
+            // test ciclo
 
         }
 
@@ -163,4 +213,6 @@ public class App {
 
         return somma;
     }
+
+ */
 }
