@@ -1,0 +1,47 @@
+UTENTE
+    id_utente
+    id_ruolo
+    nome
+    cognome
+    email
+    data_di_nascita
+    data_creazione
+    data_ultimo_accesso
+    flg_cancellato
+
+CREDENTIAL MANAGER
+    id_cm
+    id_utente
+    psw
+    data_creazione
+    data_rinnovo
+
+PRODOTTI
+    id_prodotto
+    nome
+    descrizione
+    data_creazione
+    flg_cancellato
+
+TESSERA
+    id_tessera
+    id_utente
+    saldo_punti
+    datta_attivazione
+    data_scadenza
+    flg_cancellato
+
+RUOLO
+    id_ruolo
+    nome
+
+CAT_PROD
+    id_catalogo
+    id_prodotto
+    data_aggiunta
+
+CATALOGO
+    id_catalogo
+    nome
+    data_creazione
+    flg_cancellato
