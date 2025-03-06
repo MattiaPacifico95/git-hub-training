@@ -1,13 +1,13 @@
 UTENTE
-    id_utente
-    id_ruolo
-    nome
-    cognome
-    email
-    data_di_nascita
-    data_creazione
-    data_ultimo_accesso
-    flg_cancellato
+    id_utente --> long
+    id_ruolo --> long
+    nome --> String
+    cognome --> String
+    email --> String
+    data_di_nascita --> Timestamp
+    data_creazione --> Timestamp
+    data_ultimo_accesso --> Timestamp
+    flg_cancellato --> boolean
 
 CREDENTIAL MANAGER
     id_cm
@@ -19,7 +19,7 @@ CREDENTIAL MANAGER
 PRODOTTI
     id_prodotto
     nome
-    descrizione
+    descrizione -->
     data_creazione
     flg_cancellato
 
