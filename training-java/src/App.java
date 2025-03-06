@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import lorenzo_esercizi.Car;
 import lorenzo_esercizi.Racing;
@@ -10,12 +11,14 @@ import Entities.UserEntity;
 
 import javax.xml.transform.stream.StreamSource;
 
+
 public class App {
 
     int varIstanza; //Variabile di Istanza
 
     static final double PI_GRECO = 3.14159265358979323846;
     static final String PRIMO_GIORNO_DELLA_SETTIMANA = "lunedì";
+
 
 
     // Encapsulation
