@@ -1,5 +1,6 @@
 package com.ictacademy.structureproject.daos;
 
+import com.ictacademy.structureproject.entities.UserEntity;
 import com.ictacademy.structureproject.utils.DbConnection;
 
 import java.sql.*;
@@ -71,7 +72,7 @@ public class UserDao {
 
         while (rs.next()) {
             UserEntity user = new UserEntity();
-            user.setId(rs.getLong("id_User"));
+            user.setIdUtente(rs.getLong("id_User"));
             user.setNome(rs.getString("nome"));
             user.setEmail(rs.getString("email"));
             listaUtenti.add(user);
