@@ -1,7 +1,3 @@
-import Entities.UserEntity;
-
-import javax.xml.transform.stream.StreamSource;
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class App {
@@ -10,6 +6,8 @@ public class App {
 
     static final double PI_GRECO = 3.14159265358979323846;
     static final String PRIMO_GIORNO_DELLA_SETTIMANA = "lunedì";
+
+    Integer x = 1;
 
 /*
     public static void main(String[] args) {
