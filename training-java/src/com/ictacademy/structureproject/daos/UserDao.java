@@ -1,5 +1,6 @@
 package com.ictacademy.structureproject.daos;
 
+import com.ictacademy.structureproject.entities.UserEntity;
 import com.ictacademy.structureproject.utils.DbConnection;
 
 import java.sql.*;
