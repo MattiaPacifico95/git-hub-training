@@ -13,15 +13,15 @@ public class RoleEntity {
     }
 
     // Role Get e Set
-    public long getIdRole() {
-        return idRole;
+    public long getIdRole(long idRole) {
+        return this.idRole;
     }
 
     public void setIdRole(long idRole) {
         this.idRole = idRole;
     }
 
-    public String getName() {
+    public String getName(String nome) {
         return name;
     }
 

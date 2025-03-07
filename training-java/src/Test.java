@@ -13,9 +13,6 @@ public class Test {
 
     int istanza;
 
-    public Test() {
-    }
-
     public int sottrazione(int x, int y) {
         int risultato = x-y;
         return risultato;

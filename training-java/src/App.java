@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-
-import lorenzo_esercizi.Car;
-import lorenzo_esercizi.Racing;
-import lorenzo_esercizi.Vehicle;
-
-import java.io.*;
-
-import Entities.UserEntity;
 
 
 import javax.xml.transform.stream.StreamSource;
