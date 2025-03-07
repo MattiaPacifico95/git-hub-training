@@ -23,6 +23,7 @@ public class CatalogoProdottoDao {
             CatalogoProdottoEntity catalogoProdotto = new CatalogoProdottoEntity();
             catalogoProdotto.setIdCatalogo(rs.getLong("id_catalogo"));
             catalogoProdotto.setIdProdotto(rs.getLong("id_prodotto"));
+            catalogoProdotto.setDataAggiunta(rs.getTimestamp("data_aggiunta"));
             listaCatalogoProdotto.add(catalogoProdotto);
         }
         conn.close();
@@ -43,6 +44,7 @@ public class CatalogoProdottoDao {
             CatalogoProdottoEntity catalogoProdotto = new CatalogoProdottoEntity();
             catalogoProdotto.setIdCatalogo(rs.getLong("id_catalogo"));
             catalogoProdotto.setIdProdotto(rs.getLong("id_prodotto"));
+            catalogoProdotto.setDataAggiunta(rs.getTimestamp("data_aggiunta"));
             listaCatalogoProdotto.add(catalogoProdotto);
         }
         conn.close();
@@ -63,6 +65,7 @@ public class CatalogoProdottoDao {
             CatalogoProdottoEntity catalogoProdotto = new CatalogoProdottoEntity();
             catalogoProdotto.setIdCatalogo(rs.getLong("id_catalogo"));
             catalogoProdotto.setIdProdotto(rs.getLong("id_prodotto"));
+            catalogoProdotto.setDataAggiunta(rs.getTimestamp("data_aggiunta"));
             listaCatalogoProdotto.add(catalogoProdotto);
         }
         conn.close();
