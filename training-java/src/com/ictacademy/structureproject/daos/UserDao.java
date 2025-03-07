@@ -51,7 +51,7 @@ public class UserDao {
        ResultSet rs = ps.executeQuery();
 
        while (rs.next()) {
-           user.setId(rs.getLong("id_User"));
+           user.setid(rs.getLong("id_User"));
            user.setNome(rs.getString("nome"));
            user.setEmail(rs.getString("email"));
        }
@@ -82,7 +82,32 @@ public class UserDao {
     }
 
     // insert into User values (idUtente, ...)
-    public boolean createUser(long id, String nome) {}
+    public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
+
+        boolean isCreated;
+        Connection conn = dbConnection.creaConnessione();
+        PreparedStatement ps = conn.prepareStatement("INSERT into User (nome, cognome,email, data_di_nascita) VALUES (?,?,?,?)");
+        ps.setString(1, nome);
+        ps.setString(2, cognome);
+        ps.setString(3,email);
+        ps.setTimestamp(4,dataNascita);
+
+        int risultato= ps.executeUpdate();
+        if(risultato>0){
+        isCreated = true;
+        }else{
+            isCreated = false;
+        }
+
+
+
+        return isCreated;
+
+
+    }
+
+
+
 
     // update USER set (nome,....) where ID_USER = ?
     public boolean updateUser(String nome){}
