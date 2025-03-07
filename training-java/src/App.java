@@ -1,21 +1,22 @@
+import lorenzo_esercizi.Car;
+import lorenzo_esercizi.Racing;
+import lorenzo_esercizi.Vehicle;
 
+import java.io.*;
 
 import javax.xml.transform.stream.StreamSource;
-
 
 public class App {
 
     int varIstanza; //Variabile di Istanza
 
+
     static final double PI_GRECO = 3.14159265358979323846;
     static final String PRIMO_GIORNO_DELLA_SETTIMANA = "lunedì";
-
-
 
     // Encapsulation
     // public class animals(){
     //    private int tail;
-
 
 
 /*
@@ -33,7 +34,6 @@ public class App {
         //richiamo metodo calcola somma con input
         int risultato = calcolaSommaDaInput(3,6);
         System.out.printf("Risultato: %d\n", risultato);
-
 
         Car Panda = new Car("blu" + "\n");
         // Vehicle Test = new Vehicle();
@@ -62,6 +62,15 @@ public class App {
 
         System.out.println("------------------------"+ tommaso);
 
+        Car Panda = new Car("blu" + "\n");
+        // Vehicle Test = new Vehicle();
+        System.out.printf("La macchina è " + Panda.getColor() + "\n");
+        Panda.setColor("Red" + "\n");
+        System.out.printf("La macchina è " + Panda.getColor() + "\n");
+        Panda.setWheels(4);
+        System.out.printf("Le ruote sono " + Panda.getWheels() + "\n");
+        System.out.printf( "Turbo: " + Panda.turbo() + "\n");
+
 
         // DICHIARAZIONE TIPI DI DATO PRIMITIVI
 
@@ -89,7 +98,23 @@ public class App {
         System.out.println("il valore di k é:"+k);
         b= true;
         l = 'c'; // per carattere singolo si usano apici singoli
+        k = 1.23f;
+        System.out.println("il valore di k é:" + k + "\n");
+        b = true;
+        l = 'c';
 
+// Errori con Try
+        String str = null;
+        try {
+        str = null;
+        int length = str.length(); // NullPointerException
+        } catch (NullPointerException e) {
+            System.out.println("Errore:" + e.getMessage());
+        }
+        if(str != null){
+            int length = str.length();
+        }else
+            {
 
 
 // Errori con Try
@@ -184,6 +209,11 @@ public class App {
             System.out.println("i = " + i++);
         }
 
+        car Panda = new car("Rosso");
+        System.out.println ("Il colore della macchina è " +Panda.getColor());
+        Panda.setruote(4);
+        System.out.println ("Il numero di ruote è " +Panda.getRuote());
+        System.out.println("il turbo è" +Panda.turbo());
 
     }
 
