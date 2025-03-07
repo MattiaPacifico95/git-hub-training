@@ -18,6 +18,8 @@ public class App {
 
 
 /*
+
+
     public static void main(String[] args) {
 
         UserEntity u = new UserEntity();
@@ -32,7 +34,18 @@ public class App {
         int risultato = calcolaSommaDaInput(3,6);
         System.out.printf("Risultato: %d\n", risultato);
 
-<<<<<<< HEAD
+
+
+        Car Panda = new Car("blu" + "\n");
+        // Vehicle Test = new Vehicle();
+        System.out.printf("La macchina è " + Panda.getColor() + "\n");
+        Panda.setColor("Red" + "\n");
+        System.out.printf("La macchina è " + Panda.getColor() + "\n");
+        Panda.setWheels(4);
+        System.out.printf("Le ruote sono " + Panda.getWheels() + "\n");
+        System.out.printf( "Turbo: " + Panda.turbo() + "\n");
+
+
         //richiamo il metodo calcolaPari
 
         Test test = new Test();
@@ -50,7 +63,7 @@ public class App {
         tommaso.setCognome("traviganti");
 
         System.out.println("------------------------"+ tommaso);
-=======
+
         Car Panda = new Car("blu" + "\n");
         // Vehicle Test = new Vehicle();
         System.out.printf("La macchina è " + Panda.getColor() + "\n");
@@ -59,7 +72,9 @@ public class App {
         Panda.setWheels(4);
         System.out.printf("Le ruote sono " + Panda.getWheels() + "\n");
         System.out.printf( "Turbo: " + Panda.turbo() + "\n");
->>>>>>> ec4dfbe (- 4 principi Programmazione Oggetti)
+
+
+
 
         // DICHIARAZIONE TIPI DI DATO PRIMITIVI
 
@@ -76,19 +91,23 @@ public class App {
         y = 1.23;
         System.out.println("il valore di y é:" + y + "\n");
         j = 4;
-<<<<<<< HEAD
+
+
+        k = 1.23f;
+        System.out.println("il valore di k é:" + k + "\n");
+        b = true;
+        l = 'c';
+
+
 
         k= 1.23f;
         System.out.println("il valore di k é:"+k);
         b= true;
         l = 'c'; // per carattere singolo si usano apici singoli
-
-=======
         k = 1.23f;
         System.out.println("il valore di k é:" + k + "\n");
         b = true;
         l = 'c';
->>>>>>> ec4dfbe (- 4 principi Programmazione Oggetti)
 
 // Errori con Try
         String str = null;

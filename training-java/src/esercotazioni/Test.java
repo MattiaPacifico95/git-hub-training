@@ -9,12 +9,9 @@ public class Test {
     // 4. eventuali parametri in ingresso
     // corpo del metodo
 
-<<<<<<< HEAD:training-java/src/esercotazioni/Test.java
-    int istanza;
 
-=======
     // Ogni volta che creiamo una classe bisogna creare un costruttore
->>>>>>> 08afdda (aggiunto commenti costruttori):training-java/src/Test.java
+
     public Test() {
     }
 
