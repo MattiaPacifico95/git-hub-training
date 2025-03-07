@@ -1,0 +1,20 @@
+> Realizzare un app che permette agli utenti con una tessera di un super, di accedere al catalogo dei premi a punti.
+- Dati:
+user: id tessera, nome, cognome, password, punti accomulati
+catalogo dove ci sono tutti i prodotti: id prodotto, nome, foto prodotto, tipologia, prezzo
+
+- Descrizione:
+l'utente apre l'app e c'è la schermata login e registrazioni e poi le credenziali con nome, cognome, lingua, password da inserire in una sezione sotto
+nella prossima schermata, per la prima volta si genera una schermata con il QR, codice tessera punti con il logo dell'app, si vedeno le tipologie dei prodotti (cucina, esperienze ecc.),
+si vedono il catalogo dei prodotti premi con il nome in basso, il prezzo diffianco in basso e l'immagine in background,
+in alto il profilo utente con le impostazioni, il loggout, dentro impostazioni (modificare dati: lingua, rinomina utente, cambia password, tema scuro/chiaro, grandezza carateri),
+un contatore prodotti aquistati dentro il profilo utente, un contatore punti dentro il profilo utente.
+aggiunta o registrazione tessera
+modificare catalogo per admin (con il suo ruolo), per gli admin: aggiungere nuovi prodotti, modificare i prodotti, rimuovere i prodotti, aggiornare descrizione prodotti, aggiornare i punti, spostare i prodotti, aggiornare le tipologie dei prodotti, aggiungere nuove tipologie, modificare tipologie
+utenti: vedere elenco e aquistatare prodotti
+assistenza nel profilo utente o un opzione in un menu
+vissualizare i dettagli nella propria tessera nel profilo utente o un opzione in un menu
+tasto ricerca del catalogo, per admin puo cercare tutto (ricerca avanzata)
+catalogo scritta ecologica o avviso ecologico
+se non è ancora disponibile il prodotto c'è l'icona segniaposto (punto di domanda)
+se finiscono i prodotti c'è scritto "non disponibile"
