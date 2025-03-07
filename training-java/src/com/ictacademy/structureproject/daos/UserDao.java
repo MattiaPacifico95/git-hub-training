@@ -1,5 +1,6 @@
 package com.ictacademy.structureproject.daos;
 
+import com.ictacademy.structureproject.entities.UserEntity;
 import com.ictacademy.structureproject.utils.DbConnection;
 
 import java.sql.*;
@@ -50,7 +51,7 @@ public class UserDao {
        ResultSet rs = ps.executeQuery();
 
        while (rs.next()) {
-           user.setId(rs.getLong("id_User"));
+           user.setIdUtente(rs.getLong("id_User"));
            user.setNome(rs.getString("nome"));
            user.setEmail(rs.getString("email"));
        }
@@ -71,7 +72,7 @@ public class UserDao {
 
         while (rs.next()) {
             UserEntity user = new UserEntity();
-            user.setId(rs.getLong("id_User"));
+            user.setIdUtente(rs.getLong("id_User"));
             user.setNome(rs.getString("nome"));
             user.setEmail(rs.getString("email"));
             listaUtenti.add(user);
@@ -81,7 +82,23 @@ public class UserDao {
     }
 
     // insert into User values (idUtente, ...)
-    public boolean createUser(long id, String nome) {}
+    public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
+        boolean created;
+        Connection conn = dbConnection.creaConnessione();
+        PreparedStatement ps = conn.prepareStatement("insert into User (Nome, Cognome, Email, Data_di_Nascita) values (?, ?, ?, ?)");
+        ps.setString(1, nome);
+        ps.setString(2, cognome);
+        ps.setString(3, email);
+        ps.setTimestamp(4, dataNascita);
+        int rs = ps.executeUpdate();
+        conn.close();
+        if (rs > 0) {
+            created = true;
+        }else{
+            created = false;
+        }
+        return created;
+    }
 
     // update USER set (nome,....) where ID_USER = ?
     public boolean updateUser(String nome){}
