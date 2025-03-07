@@ -23,7 +23,6 @@ public class CatalogoProdottoDao {
             CatalogoProdottoEntity catalogoProdotto = new CatalogoProdottoEntity();
             catalogoProdotto.setIdCatalogo(rs.getLong("id_catalogo"));
             catalogoProdotto.setIdProdotto(rs.getLong("id_prodotto"));
-            catalogoProdotto.setDataAggiunta(rs.getTimestamp("data_aggiunta"));
             listaCatalogoProdotto.add(catalogoProdotto);
         }
         conn.close();
@@ -44,7 +43,6 @@ public class CatalogoProdottoDao {
             CatalogoProdottoEntity catalogoProdotto = new CatalogoProdottoEntity();
             catalogoProdotto.setIdCatalogo(rs.getLong("id_catalogo"));
             catalogoProdotto.setIdProdotto(rs.getLong("id_prodotto"));
-            catalogoProdotto.setDataAggiunta(rs.getTimestamp("data_aggiunta"));
             listaCatalogoProdotto.add(catalogoProdotto);
         }
         conn.close();
@@ -65,7 +63,6 @@ public class CatalogoProdottoDao {
             CatalogoProdottoEntity catalogoProdotto = new CatalogoProdottoEntity();
             catalogoProdotto.setIdCatalogo(rs.getLong("id_catalogo"));
             catalogoProdotto.setIdProdotto(rs.getLong("id_prodotto"));
-            catalogoProdotto.setDataAggiunta(rs.getTimestamp("data_aggiunta"));
             listaCatalogoProdotto.add(catalogoProdotto);
         }
         conn.close();
@@ -88,6 +85,24 @@ public class CatalogoProdottoDao {
             created = false;
         }
         return created;
+    }
+
+    public boolean deleteCatalogoProdotto(long idCatalogo, long idProdotto) throws SQLException {
+        boolean deleted;
+        Connection conn = dbConnection.creaConnessione();
+        PreparedStatement ps = conn.prepareStatement("delete from CatalogoProdotto where id_catalogo = ? and id_prodotto = ?");
+        ps.setLong(1, idCatalogo);
+        ps.setLong(2, idProdotto);
+        int rs = ps.executeUpdate();
+        conn.close();
+
+        if(rs>0) {
+            deleted = true;
+        } else {
+            deleted = false;
+        }
+        return deleted;
+
     }
 
 
