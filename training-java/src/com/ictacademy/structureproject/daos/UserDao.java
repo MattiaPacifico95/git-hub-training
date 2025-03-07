@@ -60,6 +60,28 @@ public class UserDao {
        return user;
     }
 
+    //select * from USER where email = ?
+    public UserEntity findByEmail(String email) throws SQLException {
+
+        UserEntity user = new UserEntity();
+
+        Connection conn = dbConnection.creaConnessione();
+        PreparedStatement ps = conn.prepareStatement("select * from USER where email = ?");
+        ps.setString(1, email);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            user.setIdUtente(rs.getLong("id_User"));
+            user.setNome(rs.getString("nome"));
+            user.setEmail(rs.getString("email"));
+            user.setCognome(rs.getString("cognome"));
+            user.setDataNascita(rs.getTimestamp("dataNascita"));
+            user.setIdRuolo(rs.getLong("idRuolo"));
+        }
+        conn.close();
+        return user;
+    }
+
     //select * from USER
     public List<UserEntity> findAll() throws SQLException {
 
