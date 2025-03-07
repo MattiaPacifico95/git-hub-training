@@ -77,29 +77,30 @@ public class UserDao {
             user.setEmail(rs.getString("email"));
             listaUtenti.add(user);
         }
+        conn.close();
 
         return listaUtenti;
     }
 
     // insert into User values (idUtente, ...)
-    public boolean createUser(String nome,String cognome, String email, Timestamp data) throws SQLException {
-        boolean b;
+
+    public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
+        boolean created;
         Connection conn = dbConnection.creaConnessione();
-        String sql = "insert into USER (nome, cognome, email, data_di_nascita) values (?, ?, ?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
+        PreparedStatement ps = conn.prepareStatement("insert into User (nome, cognome, email, data_di_nascita) values (?, ?, ?, ?)");
         ps.setString(1, nome);
         ps.setString(2, cognome);
         ps.setString(3, email);
-        ps.setTimestamp(4, data);
+        ps.setTimestamp(4, dataNascita);
         int rs = ps.executeUpdate();
-        if(rs > 0) {
-            b=true;
-            return b;
+        conn.close();
+
+        if (rs > 0) {
+            created = true;
+        }else{
+            created = false;
         }
-        else {
-            b=false;
-            return b;
-        }
+        return created;
     }
 
     // update USER set (nome,....) where ID_USER = ?

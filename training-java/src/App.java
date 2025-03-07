@@ -1,3 +1,7 @@
+
+import javax.xml.transform.stream.StreamSource;
+
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class App {
@@ -145,6 +149,11 @@ public class App {
             System.out.println("i = " + i++);
         }
 
+        car Panda = new car("Rosso");
+        System.out.println ("Il colore della macchina è " +Panda.getColor());
+        Panda.setruote(4);
+        System.out.println ("Il numero di ruote è " +Panda.getRuote());
+        System.out.println("il turbo è" +Panda.turbo());
 
     }
 
