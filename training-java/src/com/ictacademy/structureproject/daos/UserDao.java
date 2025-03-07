@@ -77,6 +77,7 @@ public class UserDao {
             user.setEmail(rs.getString("email"));
             listaUtenti.add(user);
         }
+        conn.close();
 
         return listaUtenti;
     }
@@ -85,13 +86,14 @@ public class UserDao {
     public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
         boolean created;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("insert into User (Nome, Cognome, Email, Data_di_Nascita) values (?, ?, ?, ?)");
+        PreparedStatement ps = conn.prepareStatement("insert into User (nome, cognome, email, data_di_nascita) values (?, ?, ?, ?)");
         ps.setString(1, nome);
         ps.setString(2, cognome);
         ps.setString(3, email);
         ps.setTimestamp(4, dataNascita);
         int rs = ps.executeUpdate();
         conn.close();
+
         if (rs > 0) {
             created = true;
         }else{
