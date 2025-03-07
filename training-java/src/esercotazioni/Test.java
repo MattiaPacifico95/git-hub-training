@@ -19,6 +19,16 @@ public class Test {
         return risultato;
     }
 
+    public boolean calcoloPari(int X, float Y){
+        float risultato = X + Y;
+        if (risultato % 2 == 0){
+            System.out.println(risultato);
+            return true;
+        } else{
+            System.out.println(risultato);
+            return false;
+        }
+    }
     public boolean verificaStringa(String s) {
 
         String confronto = "ciao";
@@ -29,8 +39,6 @@ public class Test {
             System.out.println("le stringhe non sono uguali");
             return false;
         }
-
-
     }
 
  public boolean sommaPari (int x, float y) {
