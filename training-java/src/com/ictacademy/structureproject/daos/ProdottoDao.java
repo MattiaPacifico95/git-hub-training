@@ -53,14 +53,16 @@ public class ProdottoDao {
         return listaProdotti;
     }
 
-    public boolean createProdotto(String nome, String descrizione, Timestamp dataCreazione) throws SQLException {
+    public boolean createProdotto(long id_prodotto, String nome, String descrizione, Timestamp dataCreazione, boolean flg_cancellato) throws SQLException {
 
         boolean insertAvvenuta;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("INSERT into Prodotto (nome, descrizione, dataCreazione) VALUES (?,?,?)");
-        ps.setString(1, nome);
-        ps.setString(2, descrizione);
-        ps.setTimestamp(3, dataCreazione);
+        PreparedStatement ps = conn.prepareStatement("INSERT into Prodotto (id_prodotto, nome, descrizione, dataCreazione, flg_cancellato) VALUES (?,?,?,?,?)");
+        ps.setLong(1, id_prodotto);
+        ps.setString(2, nome);
+        ps.setString(3, descrizione);
+        ps.setTimestamp(4, dataCreazione);
+        ps.setBoolean(5, flg_cancellato);
 
         int risultato = ps.executeUpdate();
 
