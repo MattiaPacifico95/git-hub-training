@@ -46,7 +46,7 @@ public class UserDao {
         UserEntity user = new UserEntity();
 
        Connection conn = dbConnection.creaConnessione();
-       PreparedStatement ps = conn.prepareStatement("select * from USER where idUtente = ?");
+       PreparedStatement ps = conn.prepareStatement("select * from USER where idCard = ?");
        ps.setLong(1, id);
        ResultSet rs = ps.executeQuery();
 
