@@ -117,4 +117,7 @@ public class UserEntity {
                 ", flagCancellato=" + flagCancellato +
                 '}';
     }
+
+    public void setid(long idUser) {
+    }
 }
