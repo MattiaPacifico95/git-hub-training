@@ -4,20 +4,19 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 public class CardEntity {
-    int idTessera;
-    int idUtente;
+    long idTessera;
+    long idUtente;
     int saldoPunti;
     Timestamp dattaAttivazione;
-    Timestamp dataScadenza;
-     boolean flagCancellato;
+     Timestamp dataScadenza;
+    boolean flagCancellato;
 
      public CardEntity(){} // questo è il costruttore
 // get e set
-    public int getIdTessera() {
-        return idTessera;
-    }
+    public long getIdTessera() {
+        return idTessera; }
 
-    public void setIdTessera(int idTessera) {
+    public void setIdTessera(long idTessera) {
         this.idTessera = idTessera;
     }
 
@@ -29,11 +28,11 @@ public class CardEntity {
         this.saldoPunti = saldoPunti;
     }
 
-    public int getIdUtente() {
+    public long getIdUtente() {
         return idUtente;
     }
 
-    public void setIdUtente(int idUtente) {
+    public void setIdUtente(long idUtente) {
         this.idUtente = idUtente;
     }
 
@@ -71,6 +70,18 @@ public class CardEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idTessera, idUtente, saldoPunti, dattaAttivazione, dataScadenza, flagCancellato);
+    }
+
+    @Override
+    public String toString() {
+        return "CardEntity{" +
+                "idTessera=" + idTessera +
+                ", idUtente=" + idUtente +
+                ", saldoPunti=" + saldoPunti +
+                ", dattaAttivazione=" + dattaAttivazione +
+                ", dataScadenza=" + dataScadenza +
+                ", flagCancellato=" + flagCancellato +
+                '}';
     }
 }
 
