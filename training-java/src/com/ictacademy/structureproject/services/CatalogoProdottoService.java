@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogoProdottoService {
-    private CatalogoProdottoDao catalogoProdottoDao;
     private CatalogoDao catalogoDao;
     //private ProdottoDao prodottoDao;
+    private CatalogoProdottoDao catalogoProdottoDao;
 
     public CatalogoProdottoService(){}
 
