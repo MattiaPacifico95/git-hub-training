@@ -5,7 +5,7 @@ import java.util.Objects;
 
 
 public class ProdottoEntity {
-    long id_utente;
+    long id_prodotto;
     String nome;
     String descrizione;
     Timestamp data_creazione;
@@ -16,12 +16,12 @@ public class ProdottoEntity {
     }
 
 
-    public long getId_utente() {
-        return id_utente;
+    public long getId_prodotto() {
+        return id_prodotto;
     }
 
-    public void setId_utente(long id_utente) {
-        this.id_utente = id_utente;
+    public void setId_prodotto(long id_prodotto) {
+        this.id_prodotto = id_prodotto;
     }
 
     public Boolean getFlg_cancellato() {
@@ -60,18 +60,18 @@ public class ProdottoEntity {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ProdottoEntity that = (ProdottoEntity) o;
-        return id_utente == that.id_utente && Objects.equals(nome, that.nome) && Objects.equals(descrizione, that.descrizione) && Objects.equals(data_creazione, that.data_creazione) && Objects.equals(flg_cancellato, that.flg_cancellato);
+        return id_prodotto == that.id_prodotto && Objects.equals(nome, that.nome) && Objects.equals(descrizione, that.descrizione) && Objects.equals(data_creazione, that.data_creazione) && Objects.equals(flg_cancellato, that.flg_cancellato);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_utente, nome, descrizione, data_creazione, flg_cancellato);
+        return Objects.hash(id_prodotto, nome, descrizione, data_creazione, flg_cancellato);
     }
 
     @Override
     public String toString() {
         return "ProdottoEntity{" +
-                "id_utente=" + id_utente +
+                "id_prodotto=" + id_prodotto +
                 ", nome='" + nome + '\'' +
                 ", descrizione='" + descrizione + '\'' +
                 ", data_creazione=" + data_creazione +

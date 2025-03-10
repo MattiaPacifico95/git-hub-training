@@ -50,7 +50,7 @@ public class UserDao {
        ResultSet rs = ps.executeQuery();
 
        while (rs.next()) {
-           user.setId(rs.getLong("id_User"));
+           user.setIdUtente(rs.getLong("id_User"));
            user.setNome(rs.getString("nome"));
            user.setEmail(rs.getString("email"));
        }
@@ -71,7 +71,7 @@ public class UserDao {
 
         while (rs.next()) {
             UserEntity user = new UserEntity();
-            user.setId(rs.getLong("id_User"));
+            user.setIdUtente(rs.getLong("id_User"));
             user.setNome(rs.getString("nome"));
             user.setEmail(rs.getString("email"));
             listaUtenti.add(user);
@@ -81,7 +81,30 @@ public class UserDao {
     }
 
     // insert into User values (idUtente, ...)
-    public boolean createUser(long id, String nome) {}
+    public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
+
+        boolean insertAvvenuta;
+        Connection conn = dbConnection.creaConnessione();
+        PreparedStatement ps = conn.prepareStatement("INSERT into User (nome, cognome, email, dataNascita) VALUES (?,?,?,?)");
+        ps.setString(1, nome);
+        ps.setString(2, cognome);
+        ps.setString(3, email);
+        ps.setTimestamp(4, dataNascita);
+
+        int risultato = ps.executeUpdate();
+
+        if (risultato > 0) {
+            insertAvvenuta = true;
+        } else {
+            insertAvvenuta = false;
+        }
+
+
+        return insertAvvenuta;
+    }
+
+
+
 
     // update USER set (nome,....) where ID_USER = ?
     public boolean updateUser(String nome){}
