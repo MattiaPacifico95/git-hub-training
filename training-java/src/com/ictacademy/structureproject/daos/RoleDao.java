@@ -50,13 +50,14 @@ public class RoleDao {
         return list;
     }
 
-    // insert into Role values (?)
-    public boolean RoleEntityCreate(String nome) throws SQLException {
+    // insert into Role values (?, ?)
+    public boolean RoleEntityCreate(long idRole, String nome) throws SQLException {
 
         boolean risultatoCreateRole;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("insert into Role (nome) VALUES (?");
-        ps.setString(1, nome);
+        PreparedStatement ps = conn.prepareStatement("insert into Role (id_role, nome) VALUES (?, ?");
+        ps.setLong(1, idRole);
+        ps.setString(2, nome);
 
         int risultato = ps.executeUpdate();
         if (risultato > 0) {
