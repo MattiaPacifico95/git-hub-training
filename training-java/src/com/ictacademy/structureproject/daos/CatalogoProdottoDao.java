@@ -11,6 +11,9 @@ public class CatalogoProdottoDao {
 
     DbConnection dbConnection = new DbConnection();
 
+    // costruttore
+    public CatalogoProdottoDao(){}
+
     public List<CatalogoProdottoEntity> findAll() throws SQLException {
 
         List<CatalogoProdottoEntity> listaCatalogoProdotto = new ArrayList<CatalogoProdottoEntity>();
