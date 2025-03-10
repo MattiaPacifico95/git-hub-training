@@ -41,4 +41,12 @@ public class RoleEntity {
     public int hashCode() {
         return Objects.hash(idRole, name);
     }
+
+    @Override
+    public String toString() {
+        return "RoleEntity{" +
+                "idRole=" + idRole +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
