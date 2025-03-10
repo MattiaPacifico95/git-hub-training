@@ -57,7 +57,7 @@ public class ProdottoDao {
 
         boolean insertAvvenuta;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("INSERT into User (nome, descrizione, dataCreazione) VALUES (?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT into Prodotto (nome, descrizione, dataCreazione) VALUES (?,?,?)");
         ps.setString(1, nome);
         ps.setString(2, descrizione);
         ps.setTimestamp(3, dataCreazione);
@@ -80,7 +80,7 @@ public class ProdottoDao {
 
         boolean insertAvvenuta;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("UPDATE into User (nome, descrizione, dataCreazione) VALUES (?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("UPDATE into Prodotto (nome, descrizione, dataCreazione) VALUES (?,?,?)");
         ps.setString(1, nome);
         ps.setString(2, descrizione);
         ps.setTimestamp(3, dataCreazione);
@@ -102,7 +102,7 @@ public class ProdottoDao {
 
         boolean insertAvvenuta;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("DELETE into User (id_utente, flg_cancellato) VALUES (?, ?)");
+        PreparedStatement ps = conn.prepareStatement("DELETE into Prodotto (id_utente, flg_cancellato) VALUES (?, ?)");
         ps.setBoolean(1, flg_cancellato);
 
         int risultato = ps.executeUpdate();
