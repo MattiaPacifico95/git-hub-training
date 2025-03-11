@@ -3,13 +3,17 @@ package com.ictacademy.structureproject.services;
 import com.ictacademy.structureproject.daos.CredentialManagerDao;
 import com.ictacademy.structureproject.daos.UserDao;
 import com.ictacademy.structureproject.entities.UserEntity;
+import com.ictacademy.structureproject.utils.DbConnection;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UserService {
 
     UserDao userDao = new UserDao();
     CredentialManagerDao credentialManagerDao = new CredentialManagerDao();
+    DbConnection dbConnection = new DbConnection();
 
     /*
     LOGIN: funzione che prende in ingresso email
@@ -37,5 +41,17 @@ public class UserService {
         }
     }
 
+    public boolean Registration(String emailToFind, UserEntity newUser) throws SQLException{
+        UserEntity utente = userDao.findByEmail(emailToFind);
+        boolean accountCreated;
+        if (utente !=null){
+            System.out.println("L'utenza esiste già.");
+            return accountCreated = false;
+        }
 
+        accountCreated = userDao.createUser(newUser.getNome(),newUser.getCognome(),newUser.getEmail(),newUser.getDataNascita());
+        return accountCreated;
+
+
+    }
 }
