@@ -5,8 +5,6 @@ import com.ictacademy.structureproject.daos.UserDao;
 import com.ictacademy.structureproject.entities.UserEntity;
 import com.ictacademy.structureproject.utils.DbConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UserService {
@@ -16,7 +14,7 @@ public class UserService {
 
     /*
     LOGIN: funzione che prende in ingresso email
-	e password ed al click su accedi verifica esistenza
+	e password e al click su accedi verifica esistenza
 	e correttezza delle credenziali, restituirà oggetto Utente
      */
     public UserEntity login(String email, String password) throws SQLException {
@@ -39,7 +37,7 @@ public class UserService {
             return null;
         }
     }
-    // Registrazione
+    // Registrazione Utente
     public boolean Registration(String emailToFind, UserEntity newUser) throws SQLException {
         // Crea connessione
         DbConnection dbConnection = new DbConnection();
@@ -54,6 +52,7 @@ public class UserService {
         AccountCreate = userDao.createUser(newUser.getNome(),newUser.getCognome(),newUser.getEmail(),newUser.getDataNascita());
         return AccountCreate;
 
+        // Vecchio metodo
 //        Connection conn = dbConnection.creaConnessione();
 //        PreparedStatement ps = conn.prepareStatement("insert into User (idUtente ,id_role ,nome ,cognome ,email ,dataNascita ,flagCancellato) VALUES (?, ?, ?, ?; ?; ?, ?");
 //        ps.setLong(1, newUser.getIdUtente());
