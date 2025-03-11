@@ -5,6 +5,7 @@ import com.ictacademy.structureproject.daos.UserDao;
 import com.ictacademy.structureproject.entities.UserEntity;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class UserService {
 
@@ -35,6 +36,19 @@ public class UserService {
         } else {
             return null;
         }
+    }
+
+    public boolean registration(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
+
+        UserEntity utente = userDao.findByEmail(email);
+        boolean accountCreated;
+        if(utente != null){
+            System.out.println("L'utenza esiste già.");
+            return accountCreated = false;
+        }
+        accountCreated = userDao.createUser(nome, cognome, email, dataNascita);
+        return accountCreated;
+
     }
 
 
