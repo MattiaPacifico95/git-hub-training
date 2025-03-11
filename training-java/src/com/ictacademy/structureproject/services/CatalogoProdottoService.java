@@ -1,9 +1,11 @@
-package com.ictacademy.structureproject.services;
+package com.ictacademy.structureproject.services; // import package services
 
+// import entities utili
 import com.ictacademy.structureproject.entities.CatalogoEntity;
 //import com.ictacademy.structureproject.entities.ProdottoEntity;
 import com.ictacademy.structureproject.entities.CatalogoProdottoEntity;
 
+// import daos utili
 import com.ictacademy.structureproject.daos.CatalogoDao;
 //import com.ictacademy.structureproject.daos.ProdottoDao;
 import com.ictacademy.structureproject.daos.CatalogoProdottoDao;
@@ -13,12 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogoProdottoService {
+    // oggetti per richiamare metodi daos
     private CatalogoDao catalogoDao;
     //private ProdottoDao prodottoDao;
     private CatalogoProdottoDao catalogoProdottoDao;
 
-    public CatalogoProdottoService(){}
+    public CatalogoProdottoService(){} // costruttore vuoto
 
+    // funzione ritorna lista di prodotti dello stesso catalogo
     public List<ProdottoEntity> getProdottiForCatalogo(long idCatalogo) throws SQLException {
         List<ProdottoEntity> lProdForCat = new ArrayList<ProdottoEntity>();
         List<CatalogoProdottoEntity> lCatProd = catalogoProdottoDao.findByIdCatalogo(idCatalogo);
@@ -29,13 +33,21 @@ public class CatalogoProdottoService {
         return lProdForCat;
     }
 
+    // funzione ritorna lista di cataloghi per lo stesso prodotto
     public List<CatalogoEntity> getCataloghiForProdotto(long idProdotto) throws SQLException {
-        List<CatalogoEntity> lCatForProd = new ArrayList<CatalogoEntity>();
-        List<CatalogoProdottoEntity> lCatProd = catalogoProdottoDao.findByIdProdotto(idProdotto);
-        for(CatalogoProdottoEntity catProdEnt : lCatProd){
-            CatalogoEntity catalogo = catalogoDao.findById(catProdEnt.getIdCatalogo());
-            lCatForProd.add(catalogo);
+        List<CatalogoEntity> lCatForProd = new ArrayList<CatalogoEntity>(); // creo lista di cataloghi vuota per output
+        List<CatalogoProdottoEntity> lCatProd = catalogoProdottoDao.findByIdProdotto(idProdotto); // ottengo lista ID di cataloghi per prodotto
+        for(CatalogoProdottoEntity catProdEnt : lCatProd){ // ciclo su lista
+            CatalogoEntity catalogo = catalogoDao.findById(catProdEnt.getIdCatalogo()); // ottengo oggetto catalogo per ogni elemento
+            lCatForProd.add(catalogo); // aggiungo catalogo a lista
         }
-        return lCatForProd;
+        return lCatForProd; // ritorno lista
+    }
+
+    public boolean aggiungiProdAlCat(long idProdotto, long idCatalogo) throws SQLException {
+
+        if(catalogoProdottoDao.isProdottoInCatalogo(idProdotto, idCatalogo)){ return false; }
+
+        return catalogoProdottoDao.createCatalogoProdotto(idCatalogo, idProdotto);
     }
 }
