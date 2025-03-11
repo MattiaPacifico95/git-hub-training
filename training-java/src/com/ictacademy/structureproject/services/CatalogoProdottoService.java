@@ -46,8 +46,22 @@ public class CatalogoProdottoService {
 
     public boolean aggiungiProdAlCat(long idProdotto, long idCatalogo) throws SQLException {
 
-        if(catalogoProdottoDao.isProdottoInCatalogo(idProdotto, idCatalogo)){ return false; }
+        if(catalogoProdottoDao.isProdottoInCatalogo(idProdotto, idCatalogo)){
+            System.out.println("Prodotto già in catalogo.");
+            return false;
+        }
 
         return catalogoProdottoDao.createCatalogoProdotto(idCatalogo, idProdotto);
+    }
+
+    public boolean rimuoviProdDaCat(long idProdotto, long idCatalogo) throws SQLException {
+
+        if(catalogoProdottoDao.isProdottoInCatalogo(idProdotto, idCatalogo)){
+
+            return catalogoProdottoDao.deleteCatalogoProdotto(idCatalogo, idProdotto);
+        }
+
+        System.out.println("Prodotto non presente in catalogo.");
+        return false;
     }
 }
