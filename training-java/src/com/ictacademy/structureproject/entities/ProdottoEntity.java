@@ -4,12 +4,12 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 public class ProdottoEntity {
-    long id_prodotto;
+    long idProdotto;
     String nome;
     String descrizione;
     int punti;
-    Timestamp data_creazione;
-    Boolean flg_cancellato;
+    Timestamp dataCreazione;
+    Boolean flgCancellato;
 
     // costruttore di default
     public ProdottoEntity() {
@@ -23,20 +23,20 @@ public class ProdottoEntity {
         this.punti = punti;
     }
 
-    public long getId_prodotto() {
-        return id_prodotto;
+    public long getIdProdotto() {
+        return idProdotto;
     }
 
-    public void setId_prodotto(long id_prodotto) {
-        this.id_prodotto = id_prodotto;
+    public void setIdProdotto(long idProdotto) {
+        this.idProdotto = idProdotto;
     }
 
-    public Boolean getFlg_cancellato() {
-        return flg_cancellato;
+    public Boolean getflgCancellato() {
+        return flgCancellato;
     }
 
-    public void setFlg_cancellato(Boolean flg_cancellato) {
-        this.flg_cancellato = flg_cancellato;
+    public void setflgCancellato(Boolean flgCancellato) {
+        this.flgCancellato = flgCancellato;
     }
 
     public String getNome() {
@@ -55,35 +55,35 @@ public class ProdottoEntity {
         this.descrizione = descrizione;
     }
 
-    public Timestamp getData_creazione() {
-        return data_creazione;
+    public Timestamp getdataCreazione() {
+        return dataCreazione;
     }
 
-    public void setData_creazione(Timestamp data_creazione) {
-        this.data_creazione = data_creazione;
+    public void setdataCreazione(Timestamp dataCreazione) {
+        this.dataCreazione = dataCreazione;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ProdottoEntity that = (ProdottoEntity) o;
-        return id_prodotto == that.id_prodotto && punti == that.punti && Objects.equals(nome, that.nome) && Objects.equals(descrizione, that.descrizione) && Objects.equals(data_creazione, that.data_creazione) && Objects.equals(flg_cancellato, that.flg_cancellato);
+        return idProdotto == that.idProdotto && punti == that.punti && Objects.equals(nome, that.nome) && Objects.equals(descrizione, that.descrizione) && Objects.equals(dataCreazione, that.dataCreazione) && Objects.equals(flgCancellato, that.flgCancellato);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_prodotto, nome, descrizione, punti, data_creazione, flg_cancellato);
+        return Objects.hash(idProdotto, nome, descrizione, punti, dataCreazione, flgCancellato);
     }
 
     @Override
     public String toString() {
         return "ProdottoEntity{" +
-                "id_prodotto=" + id_prodotto +
+                "idProdotto=" + idProdotto +
                 ", nome='" + nome + '\'' +
                 ", descrizione='" + descrizione + '\'' +
                 ", punti=" + punti +
-                ", data_creazione=" + data_creazione +
-                ", flg_cancellato=" + flg_cancellato +
+                ", data_creazione=" + dataCreazione +
+                ", flg_cancellato=" + flgCancellato +
                 '}';
     }
 }

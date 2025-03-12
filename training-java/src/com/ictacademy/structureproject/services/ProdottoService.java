@@ -22,7 +22,7 @@ public class ProdottoService {
 
         ProdottoEntity prodottoEsistente = prodottoDao.findById(idProdotto);
 
-        if (prodottoEsistente != null && prodottoEsistente.getId_prodotto() > 0) {
+        if (prodottoEsistente != null && prodottoEsistente.getIdProdotto() > 0) {
             listaProdotti.add(prodottoEsistente);
         } else {
             System.out.println("Prodotto con ID " + idProdotto + " non trovato.");
@@ -36,7 +36,7 @@ public class ProdottoService {
 
         ProdottoEntity prodottoDaCancellare = null;
         for (ProdottoEntity prodotto : listaProdotti) {
-            if (prodotto.getId_prodotto() == idProdotto) {
+            if (prodotto.getIdProdotto() == idProdotto) {
                 prodottoDaCancellare = prodotto;
                 break;
             }
