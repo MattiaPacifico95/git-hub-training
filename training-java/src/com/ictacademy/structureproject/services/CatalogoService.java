@@ -10,20 +10,14 @@ import com.ictacademy.structureproject.entities.ProdottoEntity;
 import com.ictacademy.structureproject.entities.CatalogoProdottoEntity;
 import com.ictacademy.structureproject.entities.UserEntity;
 
+import java.sql.SQLException;
+
 public class CatalogoService {
 
     CatalogoDao catalogoDao = new CatalogoDao();
     ProdottoDao prodottoDao = new ProdottoDao();
     CatalogoProdottoDao catalogoProdottoDao = new CatalogoProdottoDao();
     CatalogoProdottoService catalogoProdottoService = new CatalogoProdottoService();
-    UserEntity userEntity = new UserEntity();
-
-    //lista prodotti con prezzo e descrizione... penso?
-    public List<ProdottoEntity> elencaProdotti(long idCatalogo) {
-
-        return catalogoProdottoService.getProdottiForCatalogo(idCatalogo);
-
-    }
 
     //questo dovrebbe far aggiornare il catalogo per l'admin
     public boolean gestisciCatalogo (){
@@ -32,7 +26,7 @@ public class CatalogoService {
             return catAggiornato = false;
         }
 
-        
+
 
     }
 
