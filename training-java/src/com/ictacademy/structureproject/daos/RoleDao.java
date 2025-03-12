@@ -32,6 +32,24 @@ public class RoleDao {
         return role;
     }
 
+    // select * from Role where nome = ?
+    public boolean findByNome(String nome) throws SQLException {
+
+        RoleEntity role = new RoleEntity();
+
+        Connection conn = dbConnection.creaConnessione();
+        PreparedStatement ps = conn.prepareStatement("select * from Role where nome = ?");
+        ps.setString(1, nome);
+        ResultSet rs = ps.executeQuery();
+
+        conn.close();
+        if (rs.next()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     //select * from Role
     public List<RoleEntity> findAll() throws SQLException {
         List<RoleEntity> list = new ArrayList<RoleEntity>();
@@ -51,13 +69,12 @@ public class RoleDao {
     }
 
     // insert into Role values (?, ?)
-    public boolean RoleEntityCreate(long idRuolo, String nome) throws SQLException {
+    public boolean RoleEntityCreate(String nome) throws SQLException {
 
         boolean risultatoCreateRole;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("insert into Role (id_role, nome) VALUES (?, ?");
-        ps.setLong(1, idRuolo);
-        ps.setString(2, nome);
+        PreparedStatement ps = conn.prepareStatement("insert into Role (nome) VALUES (?)");
+        ps.setString(1, nome);
 
         int risultato = ps.executeUpdate();
         if (risultato > 0) {
