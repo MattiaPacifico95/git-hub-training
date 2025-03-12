@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserService {
     DbConnection dbConnection = new DbConnection();
@@ -98,23 +100,26 @@ public class UserService {
         }
         accountCreated = userDao.createUser(newUser.getNome(), newUser.getCognome(), newUser.getEmail(), newUser.getDataNascita());
         utente = userDao.findByEmail(emailToFind);
-
         utente.setIdRuolo(2);
 
         return accountCreated;
     }
-    public boolean addAcquisto(List<ProdottoEntity> prodotto_utente, UserEntity user){
-        if(prodotto_utente==null){
-            return false;
-        }
-        int sommaAcquisti=0;
-        for(ProdottoEntity prodottoSingolo : prodotto_utente){
-            sommaAcquisti += prodottoSingolo.getSaldoPunti();
-        }
-        CardEntity tessera = new CardDao.findByIdUtente(user.getIdUtente());
-        tessera.setSaldoPunti(tessera.getSaldoPunti-sommaAcquisti);
-        return true;
-    }
+    public Map<Long, Integer> addToCart(List<ProdottoEntity> prodottiSelezionati, UserEntity user){
 
+        Map<Long, Integer> cart = new HashMap<Long, Integer>();
+
+        if(prodottiSelezionati==null){
+            System.out.println("nessun prodotto selezionato");
+            return new HashMap<>();
+        } else {
+            for(ProdottoEntity prodotto : prodottiSelezionati) {
+                Long idProdotto = prodotto.getIdProdotto();
+                Integer punti = prodotto.getPunti();
+                cart.put(idProdotto, punti);
+            }
+
+            return cart;
+        }
+    }
 
 }
