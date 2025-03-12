@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 public class ProdottoEntity {
+
     long idProdotto;
     String nome;
     String descrizione;

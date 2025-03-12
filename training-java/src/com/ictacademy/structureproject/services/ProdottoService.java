@@ -11,29 +11,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProdottoService {
+
+
     ProdottoDao prodottoDao = new ProdottoDao();
     CatalogoDao catalogoDao = new CatalogoDao();
     CatalogoProdottoDao catalogoProdottoDao = new CatalogoProdottoDao();
-
-    List<ProdottoEntity> listaProdotti = new ArrayList<>();
-
-    public List<ProdottoEntity> aggiungiProdotto(long idProdotto) throws SQLException {
+    UserDao userDao = new UserDao();
 
 
-        ProdottoEntity prodottoEsistente = prodottoDao.findById(idProdotto);
 
-        if (prodottoEsistente != null && prodottoEsistente.getIdProdotto() > 0) {
-            listaProdotti.add(prodottoEsistente);
+    //modifica punti prodotto
+    public boolean modificaPunti(Long idUtente, ProdottoEntity prodotto) throws SQLException {
+
+        boolean res = false;
+        UserEntity user = userDao.findById(idUtente);
+        if(user.getIdRuolo() == 1){
+            System.out.println("l'utente non ha il tuolo necessario per compiere la richiesta");
+            return res;
         } else {
-            System.out.println("Prodotto con ID " + idProdotto + " non trovato.");
+            res = prodottoDao.updateProdotto(prodotto.getNome(),prodotto.getDescrizione(), prodotto.getPunti(), prodotto.getdataCreazione());
+            return res;
         }
-
-        return listaProdotti;
     }
 
 
     public List<ProdottoEntity> cancellaProdotto(long idProdotto) throws SQLException {
 
+        List<ProdottoEntity> listaProdotti = new ArrayList<>();
         ProdottoEntity prodottoDaCancellare = null;
         for (ProdottoEntity prodotto : listaProdotti) {
             if (prodotto.getIdProdotto() == idProdotto) {
