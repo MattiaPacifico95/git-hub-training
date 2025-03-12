@@ -23,7 +23,7 @@ public class CatalogoProdottoService {
     public CatalogoProdottoService(){} // costruttore vuoto
 
     // funzione ritorna lista di prodotti dello stesso catalogo
-    public List<ProdottoEntity> getProdottiForCatalogo(long idCatalogo) throws SQLException {
+    public List<ProdottoEntity> getProdottiForCatalogo(Long idCatalogo) throws SQLException {
         List<ProdottoEntity> lProdForCat = new ArrayList<ProdottoEntity>();
         List<CatalogoProdottoEntity> lCatProd = catalogoProdottoDao.findByIdCatalogo(idCatalogo);
         for(CatalogoProdottoEntity catProdEnt : lCatProd){
@@ -34,7 +34,7 @@ public class CatalogoProdottoService {
     }
 
     // funzione ritorna lista di cataloghi per lo stesso prodotto
-    public List<CatalogoEntity> getCataloghiForProdotto(long idProdotto) throws SQLException {
+    public List<CatalogoEntity> getCataloghiForProdotto(Long idProdotto) throws SQLException {
         List<CatalogoEntity> lCatForProd = new ArrayList<CatalogoEntity>(); // creo lista di cataloghi vuota per output
         List<CatalogoProdottoEntity> lCatProd = catalogoProdottoDao.findByIdProdotto(idProdotto); // ottengo lista ID di cataloghi per prodotto
         for(CatalogoProdottoEntity catProdEnt : lCatProd){ // ciclo su lista
@@ -44,7 +44,7 @@ public class CatalogoProdottoService {
         return lCatForProd; // ritorno lista
     }
 
-    public boolean aggiungiProdAlCat(long idProdotto, long idCatalogo) throws SQLException {
+    public boolean aggiungiProdAlCat(Long idProdotto, Long idCatalogo) throws SQLException {
 
         if(catalogoProdottoDao.isProdottoInCatalogo(idProdotto, idCatalogo)){
             System.out.println("Prodotto già in catalogo.");
@@ -54,7 +54,7 @@ public class CatalogoProdottoService {
         return catalogoProdottoDao.createCatalogoProdotto(idCatalogo, idProdotto);
     }
 
-    public boolean rimuoviProdDaCat(long idProdotto, long idCatalogo) throws SQLException {
+    public boolean rimuoviProdDaCat(Long idProdotto, Long idCatalogo) throws SQLException {
 
         if(catalogoProdottoDao.isProdottoInCatalogo(idProdotto, idCatalogo)){
 
