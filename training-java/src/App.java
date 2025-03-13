@@ -1,4 +1,3 @@
-
 import lorenzo_esercizi.Car;
 import lorenzo_esercizi.Racing;
 import lorenzo_esercizi.Vehicle;
@@ -11,6 +10,7 @@ public class App {
 
     int varIstanza; //Variabile di Istanza
 
+
     static final double PI_GRECO = 3.14159265358979323846;
     static final String PRIMO_GIORNO_DELLA_SETTIMANA = "lunedì";
 
@@ -20,7 +20,6 @@ public class App {
 
 
 /*
-
 
     public static void main(String[] args) {
 
@@ -36,8 +35,6 @@ public class App {
         int risultato = calcolaSommaDaInput(3,6);
         System.out.printf("Risultato: %d\n", risultato);
 
-
-
         Car Panda = new Car("blu" + "\n");
         // Vehicle Test = new Vehicle();
         System.out.printf("La macchina è " + Panda.getColor() + "\n");
@@ -46,7 +43,6 @@ public class App {
         Panda.setWheels(4);
         System.out.printf("Le ruote sono " + Panda.getWheels() + "\n");
         System.out.printf( "Turbo: " + Panda.turbo() + "\n");
-
 
         //richiamo il metodo calcolaPari
 
@@ -76,8 +72,6 @@ public class App {
         System.out.printf( "Turbo: " + Panda.turbo() + "\n");
 
 
-
-
         // DICHIARAZIONE TIPI DI DATO PRIMITIVI
 
         int x; // numeri interi 32 bit
@@ -94,12 +88,10 @@ public class App {
         System.out.println("il valore di y é:" + y + "\n");
         j = 4;
 
-
         k = 1.23f;
         System.out.println("il valore di k é:" + k + "\n");
         b = true;
         l = 'c';
-
 
 
         k= 1.23f;
@@ -110,6 +102,20 @@ public class App {
         System.out.println("il valore di k é:" + k + "\n");
         b = true;
         l = 'c';
+
+// Errori con Try
+        String str = null;
+        try {
+        str = null;
+        int length = str.length(); // NullPointerException
+        } catch (NullPointerException e) {
+            System.out.println("Errore:" + e.getMessage());
+        }
+        if(str != null){
+            int length = str.length();
+        }else
+            {
+
 
 // Errori con Try
         String str = null;

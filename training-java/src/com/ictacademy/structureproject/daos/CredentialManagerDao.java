@@ -28,6 +28,21 @@ public class CredentialManagerDao {
        return credential;
     }
 
+    // select * from credential_manager where password = ? and id_utente = ?
+    public String findByPswAndIdUtente(String psw, long idUtente) throws SQLException {
+        String password = "";
+        Connection conn = dbConnection.creaConnessione();
+        PreparedStatement ps = conn.prepareStatement("select * from credential_manager where password = ? and id_utente = ?");
+        ps.setString(1, psw);
+        ps.setLong(2, idUtente);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            password = rs.getString("password");
+        }
+        conn.close();
+        return password;
+    }
+
     // select * from Credential_manager
     public List<CredentialManagerEntity> findAll() throws SQLException {
 

@@ -12,6 +12,8 @@ public class Test {
 
     // Ogni volta che creiamo una classe bisogna creare un costruttore
 
+    int istanza;
+
     public int sottrazione(int x, int y) {
         int risultato = x-y;
         return risultato;
