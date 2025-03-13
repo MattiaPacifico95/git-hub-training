@@ -108,6 +108,10 @@ public class UserDao {
 
     public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
         boolean created;
+        UserEntity user = new UserEntity();
+        //setto alla creazione il ruolo di utente base
+        user.setIdRuolo(2);
+
         Connection conn = dbConnection.creaConnessione();
         PreparedStatement ps = conn.prepareStatement("insert into User (nome, cognome, email, data_di_nascita) values (?, ?, ?, ?)");
         ps.setString(1, nome);
