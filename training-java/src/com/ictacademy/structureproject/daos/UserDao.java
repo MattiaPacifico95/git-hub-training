@@ -127,6 +127,8 @@ public class UserDao {
         }else{
             created = false;
         }
+        //created = rs > 0 ? true : false; // operatore ternario
+
         return created;
     }
 

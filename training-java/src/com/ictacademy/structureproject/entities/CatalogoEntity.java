@@ -8,6 +8,7 @@ public class CatalogoEntity {
     String nome;
     Timestamp dataCreazione;
     boolean flagCancellato;
+    Timestamp fineOfferta;
 
     public CatalogoEntity(){}
 
@@ -43,16 +44,19 @@ public class CatalogoEntity {
         this.flagCancellato = flagCancellato;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        CatalogoEntity that = (CatalogoEntity) o;
-        return idCatalogo == that.idCatalogo && flagCancellato == that.flagCancellato && Objects.equals(nome, that.nome) && Objects.equals(dataCreazione, that.dataCreazione);
+    public Timestamp getFineOfferta() {
+        return fineOfferta;
     }
+
+    public void setFineOfferta(Timestamp fineOfferta) {
+        this.fineOfferta = fineOfferta;
+    }
+
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCatalogo, nome, dataCreazione, flagCancellato);
+        return Objects.hash(idCatalogo, nome, dataCreazione, flagCancellato, fineOfferta);
     }
 
     @Override
@@ -62,6 +66,7 @@ public class CatalogoEntity {
                 ", nome='" + nome + '\'' +
                 ", dataCreazione=" + dataCreazione +
                 ", flagCancellato=" + flagCancellato +
+                ", fineOfferta=" + fineOfferta +
                 '}';
     }
 }
