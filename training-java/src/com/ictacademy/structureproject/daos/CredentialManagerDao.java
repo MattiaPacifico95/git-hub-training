@@ -104,7 +104,5 @@ public class CredentialManagerDao {
         }
     }
 
-    public boolean updateCredential(int userId, String nuovaPassword, Timestamp dataRinnovo, Timestamp idCm) {
-    }
 }
 
