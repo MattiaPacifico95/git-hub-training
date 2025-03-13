@@ -9,24 +9,28 @@ import java.util.List;
 
 public class CredentialManagerDao {
 
-    DbConnection dbConnection = new DbConnection();
+    private final DbConnection dbConnection = new DbConnection();
 
-    public CredentialManagerEntity findCredentialById (long idCm) throws SQLException {
-        CredentialManagerEntity credential = new CredentialManagerEntity();
-        Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("select * from CREDENTIAL_MANAGER where id_CredentialManager = ?");
-        ps.setLong(1, idCm);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            credential.setIdCm(rs.getLong("id_CredentialManager"));
-            credential.setPsw(rs.getString("password"));
-            credential.setDataCreazione(rs.getTimestamp("data_creazione"));
-            credential.setIdUtente(rs.getLong("id_Utente"));
-            credential.setDataRinnovo(rs.getTimestamp("data_rinnovo"));
+    public CredentialManagerEntity findCredentialById(long idCm) throws SQLException {
+        String query = "SELECT * FROM CREDENTIAL_MANAGER WHERE id_CredentialManager = ?";
+        try (Connection conn = dbConnection.creaConnessione();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setLong(1, idCm);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return new CredentialManagerEntity(
+                            rs.getLong("id_CredentialManager"),
+                            rs.getString("password"),
+                            rs.getTimestamp("data_creazione"),
+                            rs.getLong("id_Utente"),
+                            rs.getTimestamp("data_rinnovo")
+                    );
+                }
+            }
         }
-       conn.close();
-       return credential;
+        return null;
     }
+
 
     // select * from credential_manager where password = ? and id_utente = ?
     public String findByPswAndIdUtente(String psw, long idUtente) throws SQLException {
@@ -44,77 +48,79 @@ public class CredentialManagerDao {
     }
 
     // select * from Credential_manager
-    public List<CredentialManagerEntity> findAll() throws SQLException {
 
-        List<CredentialManagerEntity> lista = new ArrayList<CredentialManagerEntity>();
-        Connection conn = dbConnection.creaConnessione();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select * from CREDENTIAL_MANAGER");
-        while (rs.next()) {
-            CredentialManagerEntity credential = new CredentialManagerEntity();
-            credential.setIdCm(rs.getLong("id_CredentialManager"));
-            credential.setPsw(rs.getString("password"));
-            credential.setDataCreazione(rs.getTimestamp("data_creazione"));
-            credential.setIdUtente(rs.getLong("id_Utente"));
-            credential.setDataRinnovo(rs.getTimestamp("data_rinnovo"));
-            lista.add(credential);
+    public List<CredentialManagerEntity> findAll() throws SQLException {
+        List<CredentialManagerEntity> lista = new ArrayList<>();
+        String query = "SELECT * FROM CREDENTIAL_MANAGER";
+        try (Connection conn = dbConnection.creaConnessione();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
+                lista.add(new CredentialManagerEntity(
+                        rs.getLong("id_CredentialManager"),
+                        rs.getString("password"),
+                        rs.getTimestamp("data_creazione"),
+                        rs.getLong("id_Utente"),
+                        rs.getTimestamp("data_rinnovo")
+                ));
+            }
         }
-        conn.close();
         return lista;
     }
 
-
-    // insert into credential_manager (password, id_utente, data_rinnovo) values (?,?,?)
     public boolean createCredential(String password, long idUtente, Timestamp dataRinnovo) throws SQLException {
-        boolean res;
-        Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("insert into credential_manager (password, id_utente, data_rinnovo) values (?,?,?)");
-        ps.setString(1, password);
-        ps.setLong(2, idUtente);
-        ps.setTimestamp(3, dataRinnovo);
-        int rs = ps.executeUpdate();
-        if(rs >0 ){
-            res = true;
-        } else {
-            res = false;
+        String query = "INSERT INTO credential_manager (password, id_utente, data_rinnovo) VALUES (?, ?, ?)";
+        try (Connection conn = dbConnection.creaConnessione();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, password);
+            ps.setLong(2, idUtente);
+            ps.setTimestamp(3, dataRinnovo);
+            return ps.executeUpdate() > 0;
         }
-        conn.close();
-        return res;
     }
 
-    // update Credential_manager set password = ?, data_rinnovo = ? where id_credential = ?
-    public boolean updateCredential(String password, Timestamp dataRinnovo, long idCm) throws SQLException {
-        boolean res;
-        Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("update credential_manager set password=?, data_rinnovo = ? where id_CredentialManager=?");
-        ps.setString(1, password);
-        ps.setTimestamp(2, dataRinnovo);
-        ps.setLong(3, idCm);
-        int rs = ps.executeUpdate();
-        if(rs >0 ){
-            res = true;
-        } else {
-            res = false;
+    public boolean updateCredential(int userId, String password, Timestamp dataRinnovo, long idCm) throws SQLException {
+        String query = "UPDATE credential_manager SET password = ?, data_rinnovo = ? WHERE id_CredentialManager = ?";
+        try (Connection conn = dbConnection.creaConnessione();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, password);
+            ps.setTimestamp(2, dataRinnovo);
+            ps.setLong(3, idCm);
+            return ps.executeUpdate() > 0;
         }
-        conn.close();
-        return res;
     }
 
-    // delete from credential_manager where id_credentialmanager = ?
     public boolean deleteCredential(long idCm) throws SQLException {
-        boolean res;
-        Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("delete from credential_manager where id_CredentialManager=?");
-        ps.setLong(1, idCm);
-        int rs = ps.executeUpdate();
-        if(rs >0 ){
-            res = true;
-        } else {
-            res = false;
+        String query = "DELETE FROM credential_manager WHERE id_CredentialManager = ?";
+        try (Connection conn = dbConnection.creaConnessione();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setLong(1, idCm);
+            return ps.executeUpdate() > 0;
         }
-        conn.close();
-        return res;
-
     }
+
+    public boolean checkOldPassword(int userId, String vecchiaPassword) throws SQLException {
+        String query = "SELECT COUNT(*) FROM credential_manager WHERE id_utente = ? AND password = ?";
+        try (Connection conn = dbConnection.creaConnessione();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, userId);
+            pstmt.setString(2, vecchiaPassword);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                return rs.next() && rs.getInt(1) > 0;
+            }
+        }
+    }
+
+    public boolean updateCredentialPassword(int userId, String newPassword, Timestamp dataRinnovo) throws SQLException {
+        String query = "UPDATE credential_manager SET password = ?, data_rinnovo = ? WHERE id_utente = ?";
+        try (Connection conn = dbConnection.creaConnessione();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, newPassword);
+            ps.setTimestamp(2, dataRinnovo);
+            ps.setInt(3, userId);
+            return ps.executeUpdate() > 0;
+        }
+    }
+
 }
 
