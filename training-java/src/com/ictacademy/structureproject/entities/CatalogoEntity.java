@@ -53,12 +53,6 @@ public class CatalogoEntity {
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        CatalogoEntity catalogo = (CatalogoEntity) o;
-        return idCatalogo == catalogo.idCatalogo && flagCancellato == catalogo.flagCancellato && Objects.equals(nome, catalogo.nome) && Objects.equals(dataCreazione, catalogo.dataCreazione) && Objects.equals(fineOfferta, catalogo.fineOfferta);
-    }
 
     @Override
     public int hashCode() {

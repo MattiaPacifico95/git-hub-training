@@ -25,7 +25,7 @@ public class CatalogoService {
         if (userEntity.getIdRuolo() != 1) {
             return catAggiornato = false;
         }
-        
+
 
 
     }
