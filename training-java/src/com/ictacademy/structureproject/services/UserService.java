@@ -2,11 +2,16 @@ package com.ictacademy.structureproject.services;
 
 import com.ictacademy.structureproject.daos.CredentialManagerDao;
 
+
 import com.ictacademy.structureproject.daos.RoleDao;
 import com.ictacademy.structureproject.daos.UserDao;
 import com.ictacademy.structureproject.entities.RoleEntity;
 import com.ictacademy.structureproject.entities.UserEntity;
 import com.ictacademy.structureproject.utils.DbConnection;
+import com.ictacademy.structureproject.daos.UserDao;
+import com.ictacademy.structureproject.entities.UserEntity;
+import com.ictacademy.structureproject.utils.DbConnection;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,6 +55,8 @@ public class UserService {
 
             String psw = credentialManagerDao.findByPswAndIdUtente(password, idUtente);
 
+
+
             if (psw != null) {
                 System.out.println("la password coincide");
                 return utente;
@@ -61,6 +68,7 @@ public class UserService {
             return null;
         }
     }
+
 
     public boolean registration(UserEntity newUser, String email) throws SQLException {
         boolean accountCreated;
