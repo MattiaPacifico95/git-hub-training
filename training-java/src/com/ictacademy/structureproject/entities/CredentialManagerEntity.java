@@ -15,6 +15,9 @@ public class CredentialManagerEntity {
     public CredentialManagerEntity() {
     }
 
+    public CredentialManagerEntity(long idCredentialManager, String password, Timestamp dataCreazione, long idUtente, Timestamp dataRinnovo) {
+    }
+
 
 
     // Getter e Setter per idCm

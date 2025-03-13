@@ -8,15 +8,24 @@ public class Test {
     // 3. nome del metodo
     // 4. eventuali parametri in ingresso
     // corpo del metodo
-
-
     // Ogni volta che creiamo una classe bisogna creare un costruttore
+
 
     public int sottrazione(int x, int y) {
         int risultato = x-y;
         return risultato;
     }
 
+    public boolean calcoloPari(int X, float Y){
+        float risultato = X + Y;
+        if (risultato % 2 == 0){
+            System.out.println(risultato);
+            return true;
+        } else{
+            System.out.println(risultato);
+            return false;
+        }
+    }
     public boolean verificaStringa(String s) {
 
         String confronto = "ciao";
@@ -27,26 +36,21 @@ public class Test {
             System.out.println("le stringhe non sono uguali");
             return false;
         }
-
     }
 
-    public boolean sommaPari(int x, float y) {
-
-        if(y != Math.floor(y)) {
-            /* SE IL DECIMALE CHE VADO AD APPROSSIMARE E' DIVERSO
-                DAL CORRISPONDENTE INTERO SENZA LA VIRGOLA, DI SICURO
-                LA SOMMA NON SARà MAI PARI
-             */
+ public boolean sommaPari (int x, float y) {
+        if (y!=Math.floor(y)) {
             return false;
         }
-
-        float somma = x+y;
-
-        if(somma%2 == 0) {
+        float somma = x + y;
+        if (somma % 2 == 0) {
             return true;
+
         } else {
             return false;
         }
+ }
+
 
     }
-}
+    

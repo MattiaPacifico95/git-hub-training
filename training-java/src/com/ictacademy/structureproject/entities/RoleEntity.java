@@ -4,8 +4,9 @@ import java.util.Objects;
 
 public class RoleEntity {
 
-    // Role Proprieta
-    long idRole;
+
+    // Ruolo Proprieta
+    long idRuolo;
     String name;
 
     // Costruttore
@@ -13,12 +14,13 @@ public class RoleEntity {
     }
 
     // Role Get e Set
-    public long getIdRole(long idRole) {
-        return this.idRole;
+
+    public long getIdRuolo(long idRuolo) {
+        return this.idRuolo;
     }
 
-    public void setIdRole(long idRole) {
-        this.idRole = idRole;
+    public void setidRuolo(long idRuolo) {
+        this.idRuolo = idRuolo;
     }
 
     public String getName(String nome) {
@@ -34,11 +36,20 @@ public class RoleEntity {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         RoleEntity that = (RoleEntity) o;
-        return idRole == that.idRole && Objects.equals(name, that.name);
+        return idRuolo == that.idRuolo && Objects.equals(name, that.name);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idRole, name);
+        return Objects.hash(idRuolo, name);
+    }
+
+    @Override
+    public String toString() {
+        return "RoleEntity{" +
+                "idRuolo=" + idRuolo +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
