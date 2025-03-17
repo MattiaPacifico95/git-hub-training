@@ -38,7 +38,7 @@ public class UserEntity {
             name = "id_ruolo",
             referencedColumnName = "id_ruolo"
     )
-    private roleEntity ruoli;
+    private RoleEntity ruoli;
 
     public UserEntity() {
     }
