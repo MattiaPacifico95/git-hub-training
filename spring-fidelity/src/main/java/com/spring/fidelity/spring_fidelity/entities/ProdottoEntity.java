@@ -32,6 +32,9 @@ public class ProdottoEntity {
     @Column(name = "flag_cancellato")
     private boolean flagCancellato;
 
+    public ProdottoEntity() {
+    }
+
     public long getIdProdotto() {
         return idProdotto;
     }
