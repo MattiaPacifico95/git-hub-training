@@ -46,7 +46,7 @@ public class UserDao {
         UserEntity user = new UserEntity();
 
        Connection conn = dbConnection.creaConnessione();
-       PreparedStatement ps = conn.prepareStatement("select * from USER where id_User = ?");
+       PreparedStatement ps = conn.prepareStatement("select * from USER where idCard = ?");
        ps.setLong(1, id);
        ResultSet rs = ps.executeQuery();
 
@@ -99,42 +99,102 @@ public class UserDao {
             user.setEmail(rs.getString("email"));
             listaUtenti.add(user);
         }
+        conn.close();
 
         return listaUtenti;
     }
 
-    // insert into User values (idUtente, ...)
-    public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
 
-        boolean insertAvvenuta;
+    // insert into User values (idUtente, ...)
+
+
+    public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita) throws SQLException {
+        boolean created;
+        UserEntity user = new UserEntity();
+        //setto alla creazione il ruolo di utente base
+        user.setIdRuolo(2);
+
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("INSERT into User (nome, cognome, email, dataNascita) VALUES (?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("insert into User (nome, cognome, email, data_di_nascita) values (?, ?, ?, ?)");
+
         ps.setString(1, nome);
         ps.setString(2, cognome);
         ps.setString(3, email);
         ps.setTimestamp(4, dataNascita);
 
-        int risultato = ps.executeUpdate();
+        int rs = ps.executeUpdate();
+        conn.close();
 
-        if (risultato > 0) {
-            insertAvvenuta = true;
-        } else {
-            insertAvvenuta = false;
+        if (rs > 0) {
+            created = true;
+        }else{
+            created = false;
         }
+        //created = rs > 0 ? true : false; // operatore ternario
 
-
-        return insertAvvenuta;
+        return created;
     }
 
 
-
-
     // update USER set (nome,....) where ID_USER = ?
-    public boolean updateUser(String nome){}
+    public boolean updateUser(String nome,String cognome,String email,Timestamp data,long id_utente) throws SQLException {
+        boolean b;
+        Connection conn = dbConnection.creaConnessione();
+        ///////UPDATE Person SET given_names = 'Stefano' WHERE ID = 4;
+        String sql ="update USER set nome = ?, cognome = ?, email = ?, data_di_nascita= ? where id_utente = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, nome);
+        ps.setString(2, cognome);
+        ps.setString(3, email);
+        ps.setTimestamp(4, data);
+        ps.setLong(5, id_utente);
+
+        int rs = ps.executeUpdate();
+        if(rs > 0) {
+            b=true;
+            return b;
+        }
+        else {
+            b=false;
+            return b;
+        }
+    }
 
     // update User set (flag_cancellato = 1) Where id_user = ?
-    public boolean logicDelete(long id){}
-
+    public boolean logicDelete(boolean flag_cancellato,long idUtente) throws SQLException {
+        boolean b;
+        Connection conn = dbConnection.creaConnessione();
+        String sql = "update USER set flag_cancellato = ? where id_User = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setBoolean(1,flag_cancellato);
+        ps.setLong(2,idUtente);
+        int rs = ps.executeUpdate();
+        if(rs > 0) {
+            b=true;
+            return b;
+        }
+        else {
+            b=false;
+            return b;
+        }
+    }
 
     // --> cancellazione fisica
+    //delete from USER where idUtente = ?
+    public boolean fisicDelete(boolean flag_cancellato,long idUtente) throws SQLException {
+        boolean b;
+        Connection conn = dbConnection.creaConnessione();
+        String sql = "delete from USER where idUtente = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setLong(1, idUtente);
+        int rs = ps.executeUpdate();
+        if(rs > 0) {
+            b=true;
+            return b;
+        }
+        else {
+            b=false;
+            return b;
+        }
+    }
 }
