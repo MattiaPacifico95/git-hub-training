@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository // metodi CRUD già forniti da SPRING
-public interface CataogoProdottoDao extends JpaRepository<CatalogoProdottoEntity, Long> {
+public interface CatalogoProdottoDao extends JpaRepository<CatalogoProdottoEntity, Long> {
 
 }
