@@ -10,11 +10,11 @@ import java.util.Objects;
 public class TesseraEntity {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    @Column(name =  "id_utente")
-    private long idUtente;
-
-    @Column(name = "id_tessera")
+    @Column(name =  "id_tessera")
     private long idTessera;
+
+    @Column(name = "id_utente")
+    private long idUtente;
 
     @Column(name = "data_attivazione")
     private Timestamp dataAttivazione;
@@ -25,16 +25,15 @@ public class TesseraEntity {
     @Column(name = "data_scadenza")
     private Timestamp dataScadenza;
 
-
-
     @Column(name = "flag_cancellato")
     private boolean flagCancellato;
 
     @ManyToOne
     @JoinColumn(
-            name = "id_ruolo",
-            referencedColumnName = "id_ruolo"
+            name = "id_utente",
+            referencedColumnName = "id_utente"
     )
+    private UserEntity utente;
 
 
     public Timestamp getDataAttivazione() {
@@ -100,8 +99,8 @@ public class TesseraEntity {
     @Override
     public String toString() {
         return "TesseraEntity{" +
-                "idUtente=" + idUtente +
-                ", idTessera=" + idTessera +
+                "idTessera=" + idTessera +
+                ", idUtente=" + idUtente +
                 ", dataAttivazione=" + dataAttivazione +
                 ", saldoPunti=" + saldoPunti +
                 ", dataScadenza=" + dataScadenza +
