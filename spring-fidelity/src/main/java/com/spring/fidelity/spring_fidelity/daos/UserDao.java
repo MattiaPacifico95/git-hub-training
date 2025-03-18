@@ -16,7 +16,7 @@ public interface UserDao extends JpaRepository<UserEntity,Long> {
     public UserEntity findByEmail(String email);
 
     @Query("select u from UserEntity u where u.idUtente = ?1")
-    public Optional<UserEntity> findById(Long id_utente);
+    public UserEntity findBy(Long id_utente);
 
     @NativeQuery("INSERT INTO utente (nome, cognome, email, dataNascita) VALUES (?, ?, ?, ?)")
     public boolean createUser(String nome, String cognome, String email, Timestamp dataNascita);
