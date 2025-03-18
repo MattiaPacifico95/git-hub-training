@@ -1,0 +1,47 @@
+UTENTE
+    id_utente --> long
+    id_ruolo --> long
+    nome --> String
+    cognome --> String
+    email --> String
+    data_di_nascita --> Timestamp
+    data_creazione --> Timestamp
+    data_ultimo_accesso --> Timestamp
+    flg_cancellato --> boolean
+
+CREDENTIAL MANAGER
+    id_cm
+    id_utente
+    psw
+    data_creazione
+    data_rinnovo
+
+PRODOTTI
+    id_prodotto
+    nome
+    descrizione -->
+    data_creazione
+    flg_cancellato
+
+TESSERA
+    id_tessera
+    id_utente
+    saldo_punti
+    datta_attivazione
+    data_scadenza
+    flg_cancellato
+
+RUOLO
+    id_ruolo
+    nome
+
+CAT_PROD
+    id_catalogo
+    id_prodotto
+    data_aggiunta
+
+CATALOGO
+    id_catalogo
+    nome
+    data_creazione
+    flg_cancellato

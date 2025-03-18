@@ -1,0 +1,74 @@
+> Realizzare un app che permette agli utenti con una tessera di un super, di accedere al catalogo dei premi a punti.
+
+PRIME COSE DA FARE
+
+aggiungere numero di telefono ad Utente
+
+--> LOGIN: funzione che prende in ingresso email
+	e password ed al click su accedi verifica esistenza
+	e correttezza delle credenziali, restituirà boolean
+
+-->	REGISTRAZIONE: funzione che prende in ingresso
+	nome, cognome, email, data di nascita, password,
+	ripeti password, restiuisce un boolean.
+
+--> PASSWORD DIMENTICATA: funzione che prende in ingresso la mail
+	restituisce un link al reimposta passwor, una funzione dove
+	in ingresso ho password e ripeti password, verifico che siano uguali
+	ed eseguo l'update della password dimenticata.
+
+--> EMAIL DIMENTICATA: funzione che prende in ingresso numero di telefono
+	verifica a DB l'utente con quel numero e restituise la mailì
+
+--> AGGIUNGI TESSERA: funzione che prende in ingresso codice della tessera e id utente,
+	faccio una insert, il saldo punti è automaticamente a 0
+
+--> REGISTRA TESSERA ESISTENTE: inserisco il codice e il saldo punti, id utente,
+	associazione supermercato, e faccio una insert
+
+--------------------------------------------------------------------------
+
+  CONTINUARE ANALISI FUNZIONALITA'
+
+--> Accedi
+--> Registra
+--> Esci
+--> gestione utente
+--> gestione tessera
+--> gestione catalogo ( SOLO ADMIN)
+--> gestione prodotti ( SOLO ADMIN)
+--> Home page mostra i catagoli delle carte punti che ho,
+    con vistualizzazione del codice tessera e del saldo punti
+--> al click dei catalogi vedo l'elenco dei prodotti suddivisi
+    per tipologia (immagine in trasparenza con sopra il nome)
+    e il prezzo di fianco
+--> utente seleziona il prodotto che vuole acquistare
+--> ricerca prodotti/catalogi: se utente base cerca solo i prodotti
+    nel catalogo, se admin cerca tutto
+--> catalogo scritta ecologica o avviso ecologico
+--> se non è ancora disponibile il prodotto c'è l'icona segniaposto
+    (punto di domanda). se finiscono i prodotti c'è scritto "non disponibile"
+
+
+
+
+
+
+
+
+
+- Descrizione:
+l'utente apre l'app e c'è la schermata login e registrazioni e poi le credenziali con nome, cognome, lingua, password da inserire in una sezione sotto
+nella prossima schermata, per la prima volta si genera una schermata con il QR, codice tessera punti con il logo dell'app, si vedeno le tipologie dei prodotti (cucina, esperienze ecc.),
+si vedono il catalogo dei prodotti premi con il nome in basso, il prezzo diffianco in basso e l'immagine in background,
+in alto il profilo utente con le impostazioni, il logout, dentro impostazioni (modificare dati: lingua, rinomina utente, cambia password, tema scuro/chiaro, grandezza carateri),
+un contatore prodotti aquistati dentro il profilo utente, un contatore punti dentro il profilo utente.
+aggiunta o registrazione tessera
+modificare catalogo per admin (con il suo ruolo), per gli admin: aggiungere nuovi prodotti, modificare i prodotti, rimuovere i prodotti, aggiornare descrizione prodotti, aggiornare i punti, spostare i prodotti, aggiornare le tipologie dei prodotti, aggiungere nuove tipologie, modificare tipologie
+utenti: vedere elenco e aquistatare prodotti
+assistenza nel profilo utente o un opzione in un menu
+vissualizare i dettagli nella propria tessera nel profilo utente o un opzione in un menu
+tasto ricerca del catalogo, per admin puo cercare tutto (ricerca avanzata)
+catalogo scritta ecologica o avviso ecologico
+se non è ancora disponibile il prodotto c'è l'icona segniaposto (punto di domanda)
+se finiscono i prodotti c'è scritto "non disponibile"
