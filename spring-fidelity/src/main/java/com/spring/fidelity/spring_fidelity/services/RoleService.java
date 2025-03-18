@@ -1,8 +1,12 @@
 package com.spring.fidelity.spring_fidelity.services;
 
 import com.spring.fidelity.spring_fidelity.daos.RoleDao;
-import org.apache.catalina.User;
+import com.spring.fidelity.spring_fidelity.daos.UserDao;
+import com.spring.fidelity.spring_fidelity.entities.RoleEntity;
+import com.spring.fidelity.spring_fidelity.entities.UserEntity;
+import jakarta.persistence.JoinTable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -12,40 +16,42 @@ import java.util.Optional;
 @Service
 public class RoleService {
 
-    @Autowired
-    private UserDao userDao;
-
-    public Optional<User> getUserById(Long id) {
-        return userDao.findById(id);
-    }
-
     RoleDao roleDao;
-    // UserDao userDao = new UserDao();
+    UserDao userDao;
 
     //Costruttore
     public RoleService(RoleDao roleDao) {
         this.roleDao = roleDao;
     }
 
-    //Creazione del nuovo ruolo
+    // Creazione del nuovo ruolo
     public boolean addRole(Long idUser, String ruolo) throws SQLException {
 
         boolean res = false;
 
         // UserEntity user = new UserEntity();
-        user = userDao.findById(idUser);
-        if(user.getIdRuolo()!= 3){
+        // user = userDao.findById(idUser);
+        UserEntity utenteTrovato = userDao.findBy(idUser);
+        if(utenteTrovato.getIdRuolo() != 3) {
             System.out.println("l'utente non ha il ruolo valido per eseguire l'operazione");
             return res;
         } else {
-            boolean ruoloPresente = roleDao.findByNome(ruolo);
-            if (ruoloPresente) {
+            // Da controllare id e nome ruolo
+            // Partendo da utente --> id_ruolo --> nome ruolo
+            RoleEntity ruoloTrovato = roleDao.findByID(utenteTrovato.getIdRuolo());
+//            RoleEntity ruoloTrovato = roleDao.findby(utenteTrovato.getNome());
+            if (ruoloTrovato != null) {
                 System.out.println("il ruolo esiste già");
                 return false;
             } else {
-                res = roleDao.RoleEntityCreate(ruolo);
+                RoleEntity ruoloDaAggiungere = new RoleEntity();
+                ruoloDaAggiungere.setNome(ruolo);
+                roleDao.save(ruoloDaAggiungere);
+                res = true;
                 return res;
             }
         }
     }
+    // Modifica il Ruolo (to do)
+
 }
