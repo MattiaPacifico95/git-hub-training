@@ -24,9 +24,7 @@ public class UserService {
             System.out.println("esiste l'utente con mail" + email);
             long idUtente = utente.getIdUtente();
 
-            String psw = credentialManagerDao.findByPswAndIdUtente(password, idUtente);
-
-
+            String psw =credentialManagerDao.findByPasswordAndIdUtente(password, idUtente).getPassword();
 
             if (psw != null) {
                 System.out.println("la password coincide");
