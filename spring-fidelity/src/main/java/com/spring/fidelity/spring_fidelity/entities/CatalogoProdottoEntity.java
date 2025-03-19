@@ -12,7 +12,6 @@ public class CatalogoProdottoEntity {
 
     //@EmbeddedId
 
-
     @Column(name = "id_catalogo")
     private Long idCatalogo;
 
@@ -63,18 +62,6 @@ public class CatalogoProdottoEntity {
     public void setDataAggiunta(Timestamp dataAggiunta) {
         this.dataAggiunta = dataAggiunta;
     }
-/*
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        CatalogoProdottoEntity that = (CatalogoProdottoEntity) o;
-        return idCatalogo == that.idCatalogo && idProdotto == that.idProdotto && Objects.equals(dataAggiunta, that.dataAggiunta);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idCatalogo, idProdotto, dataAggiunta);
-    }*/
 
     @Override
     public boolean equals(Object o) {
