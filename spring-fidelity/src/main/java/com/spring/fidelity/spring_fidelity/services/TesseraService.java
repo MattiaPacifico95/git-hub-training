@@ -4,12 +4,14 @@ import com.spring.fidelity.spring_fidelity.daos.CatalogoDao;
 import com.spring.fidelity.spring_fidelity.daos.UserDao;
 import com.spring.fidelity.spring_fidelity.daos.tesseraDao;
 import com.spring.fidelity.spring_fidelity.entities.CatalogoEntity;
+import com.spring.fidelity.spring_fidelity.entities.ProdottoEntity;
 import com.spring.fidelity.spring_fidelity.entities.TesseraEntity;
 import com.spring.fidelity.spring_fidelity.entities.UserEntity;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 public class TesseraService {
@@ -29,7 +31,7 @@ public class TesseraService {
 
         boolean res=false;
         //Cerchiamo l'utente usando l'idUser e il dao dello user
-        user = userDao.findByID(idUser);
+        user = userDao.findBy(idUser);
         //Se l'utente ha ruolo responsabile esci
         if(user.getIdRuolo() !=  3) {
             System.out.println("l'utente non ha il ruolo corretto");
