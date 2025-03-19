@@ -33,12 +33,12 @@ public class UserEntity {
     @Column(name = "flag_cancellato")
     private boolean flagCancellato;
 
-    @ManyToOne
-    @JoinColumn(
-            name = "id_ruolo",
-            referencedColumnName = "id_ruolo"
-    )
-    private roleEntity ruoli;
+//    @ManyToOne
+//    @JoinColumn(
+//            name = "id_ruolo",
+//            referencedColumnName = "id_ruolo"
+//    )
+//    private roleEntity ruoli;
 
     public UserEntity() {
     }
@@ -103,14 +103,29 @@ public class UserEntity {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         UserEntity that = (UserEntity) o;
-        return idUtente == that.idUtente && idRuolo == that.idRuolo && flagCancellato == that.flagCancellato && Objects.equals(nome, that.nome) && Objects.equals(cognome, that.cognome) && Objects.equals(email, that.email) && Objects.equals(dataNascita, that.dataNascita) && Objects.equals(ruoli, that.ruoli);
+//        return idUtente == that.idUtente && idRuolo == that.idRuolo && flagCancellato == that.flagCancellato && Objects.equals(nome, that.nome) && Objects.equals(cognome, that.cognome) && Objects.equals(email, that.email) && Objects.equals(dataNascita, that.dataNascita) && Objects.equals(ruoli, that.ruoli);
+        return idUtente == that.idUtente && idRuolo == that.idRuolo && flagCancellato == that.flagCancellato && Objects.equals(nome, that.nome) && Objects.equals(cognome, that.cognome) && Objects.equals(email, that.email) && Objects.equals(dataNascita, that.dataNascita) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idUtente, idRuolo, nome, cognome, email, dataNascita, flagCancellato, ruoli);
+//        return Objects.hash(idUtente, idRuolo, nome, cognome, email, dataNascita, flagCancellato, ruoli);
+        return Objects.hash(idUtente, idRuolo, nome, cognome, email, dataNascita, flagCancellato);
     }
 
+//    @Override
+//    public String toString() {
+//        return "UserEntity{" +
+//                "idUtente=" + idUtente +
+//                ", idRuolo=" + idRuolo +
+//                ", nome='" + nome + '\'' +
+//                ", cognome='" + cognome + '\'' +
+//                ", email='" + email + '\'' +
+//                ", dataNascita=" + dataNascita +
+//                ", flagCancellato=" + flagCancellato +
+//                ", ruoli=" + ruoli +
+//                '}';
+//    }
     @Override
     public String toString() {
         return "UserEntity{" +
@@ -121,7 +136,7 @@ public class UserEntity {
                 ", email='" + email + '\'' +
                 ", dataNascita=" + dataNascita +
                 ", flagCancellato=" + flagCancellato +
-                ", ruoli=" + ruoli +
+
                 '}';
     }
 }

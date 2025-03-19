@@ -1,5 +1,6 @@
 package com.spring.fidelity.spring_fidelity.services;
 
+import com.spring.fidelity.spring_fidelity.daos.UserDao;
 import com.spring.fidelity.spring_fidelity.daos.tesseraDao;
 import com.spring.fidelity.spring_fidelity.entities.TesseraEntity;
 import com.spring.fidelity.spring_fidelity.entities.UserEntity;
@@ -7,25 +8,28 @@ import com.spring.fidelity.spring_fidelity.entities.UserEntity;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 public class TesseraService {
     public TesseraService() {
     }
 
 
-//    UserDao userDao = new UserDao();
-//    tesseraDao cardDao = new tesseraDao();
-//    ProdottoDao prodottoDao = new ProdottoDao();
-//    CatalogoDao catalogoDao = new CatalogoDao();
+    UserDao userDao;
+    UserEntity user;
+    tesseraDao tesseraDao;
+//    ProdottoDao prodottoDao
+//    CatalogoDao catalogoDao
 
     //verifica che il saldo punti sia >= al totale dei prodotti
     // selezionati
     public boolean verificaSaldo(Long idUser, Long idCard, Long idCatalogo, List<ProdottoEntity> listaProdotti) throws SQLException {
 
         boolean res=false;
-
-        UserEntity user = userDao.findById(idUser);
-        if(user.getIdRuolo() !=  1) {
+        //Cerchiamo l'utente usando l'idUser e il dao dello user
+        user = userDao.findByID(idUser);
+        //Se l'utente ha ruolo responsabile esci
+        if(user.getIdRuolo() !=  3) {
             System.out.println("l'utente non ha il ruolo corretto");
             return res;
         } else {
@@ -41,13 +45,13 @@ public class TesseraService {
                 }
 //              TesseraService card = tesseraDao.findById(idCard);
 
-                TesseraEntity tessera = dao.findById(idCard);
-                if(card.getSaldoPunti() < totalePunti){
+                TesseraEntity tessera = tesseraDao.findByID(idCard);
+                if(tessera.getSaldoPunti() < totalePunti){
                     System.out.println("non hai abbastanza punti");
                     return res;
                 } else {
                     res = true;
-                    System.out.println("hai"+card.getSaldoPunti()+"è i prodotti che vuoi prendere costano"+totalePunti);
+                    System.out.println("Hai "+tessera.getSaldoPunti()+" e i prodotti che vuoi prendere costano"+totalePunti);
                     return res;
                 }
             }
