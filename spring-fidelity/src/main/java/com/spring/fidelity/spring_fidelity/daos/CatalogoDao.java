@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CatalogoDao extends JpaRepository<CatalogoEntity,Long> {
     @NativeQuery("select * from catalogo where id_catalogo = ?")
-    public CatalogoEntity findById(long id_utente);
+    public CatalogoEntity findByID(long id_utente);
 }
