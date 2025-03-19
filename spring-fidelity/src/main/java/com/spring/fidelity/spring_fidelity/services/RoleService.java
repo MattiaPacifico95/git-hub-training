@@ -4,18 +4,14 @@ import com.spring.fidelity.spring_fidelity.daos.RoleDao;
 import com.spring.fidelity.spring_fidelity.daos.UserDao;
 import com.spring.fidelity.spring_fidelity.entities.RoleEntity;
 import com.spring.fidelity.spring_fidelity.entities.UserEntity;
-import jakarta.persistence.JoinTable;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-import java.util.Optional;
 
-// Recupero Id utente
 @Service
 public class RoleService {
 
+    // Recupero Id utente
     RoleDao roleDao;
     UserDao userDao;
 
@@ -29,20 +25,20 @@ public class RoleService {
 
         boolean res = false;
 
-        // UserEntity user = new UserEntity();
-        // user = userDao.findById(idUser);
         UserEntity utenteTrovato = userDao.findBy(idUser);
+        // Controlla se l'utente è admin o un utente normale
         if(utenteTrovato.getIdRuolo() != 3) {
             System.out.println("l'utente non ha il ruolo valido per eseguire l'operazione");
             return res;
         } else {
             // Da controllare id e nome ruolo
             // Partendo da utente --> id_ruolo --> nome ruolo
-            RoleEntity ruoloTrovato = roleDao.findByID(utenteTrovato.getIdRuolo());
-//            RoleEntity ruoloTrovato = roleDao.findby(utenteTrovato.getNome());
+            RoleEntity ruoloTrovato = roleDao.findByID(utenteTrovato.getIdRuolo()); // Trova ID
+            // Se esiste allora ritorna su False
             if (ruoloTrovato != null) {
                 System.out.println("il ruolo esiste già");
                 return false;
+            // Se no viene aggiunto il ruolo
             } else {
                 RoleEntity ruoloDaAggiungere = new RoleEntity();
                 ruoloDaAggiungere.setNome(ruolo);
@@ -52,6 +48,9 @@ public class RoleService {
             }
         }
     }
-    // Modifica il Ruolo (to do)
-
+    // Modifica il nome del ruolo
+//    public String updateNameRole(String nuovoNomeRuolo) {
+//
+//        RoleEntity roleEntity = roleDao.findBy(RoleDao);
+//    }
 }
