@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProdottoDao {
-
     DbConnection dbConnection = new DbConnection();
 
     public ProdottoEntity findById(long id) throws SQLException {
@@ -24,6 +23,7 @@ public class ProdottoDao {
             prodotto.setId_prodotto(rs.getLong("id_prodotto"));
             prodotto.setNome(rs.getString("nome"));
             prodotto.setDescrizione(rs.getString("descrizione"));
+            prodotto.setPunti(rs.getInt("punti"));
             prodotto.setData_creazione(rs.getTimestamp("data_creazione"));
             prodotto.setFlg_cancellato(rs.getBoolean("flg_cancellato"));
         }
@@ -46,6 +46,7 @@ public class ProdottoDao {
             prodotto.setId_prodotto(rs.getLong("id_utente"));
             prodotto.setNome(rs.getString("nome"));
             prodotto.setDescrizione(rs.getString("descrizione"));
+            prodotto.setPunti(rs.getInt("punti"));
             prodotto.setData_creazione(rs.getTimestamp("data_creazione"));
             listaProdotti.add(prodotto);
         }
@@ -53,16 +54,17 @@ public class ProdottoDao {
         return listaProdotti;
     }
 
-    public boolean createProdotto(long id_prodotto, String nome, String descrizione, Timestamp dataCreazione, boolean flg_cancellato) throws SQLException {
+    public boolean createProdotto(long id_prodotto, String nome, String descrizione, int punti, Timestamp dataCreazione, boolean flg_cancellato) throws SQLException {
 
         boolean insertAvvenuta;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("INSERT into Prodotto (id_prodotto, nome, descrizione, dataCreazione, flg_cancellato) VALUES (?,?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT into Prodotto (id_prodotto, nome, descrizione, punti, dataCreazione, flg_cancellato) VALUES (?,?,?,?,?,?)");
         ps.setLong(1, id_prodotto);
         ps.setString(2, nome);
         ps.setString(3, descrizione);
-        ps.setTimestamp(4, dataCreazione);
-        ps.setBoolean(5, flg_cancellato);
+        ps.setInt(4, punti);
+        ps.setTimestamp(5, dataCreazione);
+        ps.setBoolean(6, flg_cancellato);
 
         int risultato = ps.executeUpdate();
 
@@ -78,14 +80,15 @@ public class ProdottoDao {
 
 
 
-    public boolean updateProdotto(String nome, String descrizione, Timestamp dataCreazione) throws SQLException {
+    public boolean updateProdotto(String nome, String descrizione, int punti, Timestamp dataCreazione) throws SQLException {
 
         boolean insertAvvenuta;
         Connection conn = dbConnection.creaConnessione();
-        PreparedStatement ps = conn.prepareStatement("UPDATE into Prodotto (nome, descrizione, dataCreazione) VALUES (?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("UPDATE into Prodotto (nome, descrizione, punti, dataCreazione) VALUES (?,?,?,?)");
         ps.setString(1, nome);
         ps.setString(2, descrizione);
-        ps.setTimestamp(3, dataCreazione);
+        ps.setInt(3, punti);
+        ps.setTimestamp(4, dataCreazione);
 
         int risultato = ps.executeUpdate();
 
@@ -119,6 +122,5 @@ public class ProdottoDao {
 
 
     }
-
 
 }

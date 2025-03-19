@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserDao extends JpaRepository<UserEntity,Long> {
-    @Query("select u from UserEntity u where u.email=?4")
+    @Query("select u from UserEntity u where u.email=?1")
     public UserEntity findByEmail(String email);
 
     @Query("select u from UserEntity u where u.idUtente = ?1")
