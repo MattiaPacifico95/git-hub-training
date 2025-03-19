@@ -29,7 +29,7 @@ public class CatalogoProdottoService {
         List<ProdottoEntity> lProdForCat = new ArrayList<ProdottoEntity>();
         List<CatalogoProdottoEntity> lCatProd = catProdDao.findByIdCatalogo(idCatalogo);
         for(CatalogoProdottoEntity catProdEnt : lCatProd){
-            ProdottoEntity prod = prodottoDao.findById(catProdEnt.getIdProdotto());
+            ProdottoEntity prod = prodottoDao.findByID(catProdEnt.getIdProdotto());
             lProdForCat.add(prod);
         }
         return lProdForCat;
@@ -39,7 +39,7 @@ public class CatalogoProdottoService {
         List<CatalogoEntity> lCatForProd = new ArrayList<CatalogoEntity>(); // creo lista di cataloghi vuota per output
         List<CatalogoProdottoEntity> lCatProd = catProdDao.findByIdProdotto(idProdotto); // ottengo lista ID di cataloghi per prodotto
         for(CatalogoProdottoEntity catProdEnt : lCatProd){ // ciclo su lista
-            CatalogoEntity catalogo = catalogoDao.findById(catProdEnt.getIdCatalogo()); // ottengo oggetto catalogo per ogni elemento
+            CatalogoEntity catalogo = catalogoDao.findByID(catProdEnt.getIdCatalogo()); // ottengo oggetto catalogo per ogni elemento
             lCatForProd.add(catalogo); // aggiungo catalogo a lista
         }
         return lCatForProd; // ritorno lista
