@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @Repository
 public interface ProdottoDao extends JpaRepository<ProdottoEntity, Long> {
     @NativeQuery("select * from prodotto where id_prodotto = ?")
-    public ProdottoEntity findById(long idProdotto);
+    public ProdottoEntity findByID(long idProdotto);
 
     @NativeQuery("UPDATE into Prodotto (nome, descrizione, punti, dataCreazione) VALUES (?,?,?,?)")
     public ProdottoEntity updateProdotto(String nome, String descrizione, int punti, Timestamp dataCrerazione);
