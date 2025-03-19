@@ -49,8 +49,18 @@ public class RoleService {
         }
     }
     // Modifica il nome del ruolo
-//    public String updateNameRole(String nuovoNomeRuolo) {
-//
-//        RoleEntity roleEntity = roleDao.findBy(RoleDao);
-//    }
+    public boolean updateNameRole(Long idUser, String nuovoNomeRuolo) {
+        UserEntity utenteTrovato = userDao.findBy(idUser);
+        // Controlla se l'utente è admin o un utente normale
+        if(utenteTrovato.getIdRuolo() != 3) {
+            System.out.println("l'utente non ha il ruolo valido per eseguire l'operazione");
+            return false;
+        }
+        else{
+            // Update della tabella nome ruolo
+            RoleEntity ruoloDaModificare = roleDao.findByID(utenteTrovato.getIdRuolo());
+            roleDao.update(nuovoNomeRuolo, ruoloDaModificare.getIdRuolo());
+            return true;
+        }
+    }
 }
