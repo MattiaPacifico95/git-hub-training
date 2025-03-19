@@ -38,9 +38,12 @@ public class TesseraService {
             return res;
         } else {
 
-            CatalogoEntity catalogo = catalogoDao.findById(idCatalogo);
+            CatalogoEntity catalogo = catalogoDao.findByID(idCatalogo);
             //Da ricontrollare con CatalagoDao
-            if(catalogo.getFineOfferta() < Timestamp.valueOf(LocalDateTime.now())){
+            LocalDateTime oggi = LocalDateTime.now();
+            Timestamp controlloData = catalogo.getFineOfferta();
+            LocalDateTime controlloDataF = controlloData.toLocalDateTime();
+            if(oggi.isAfter(controlloDataF)){
                 System.out.println("il catalogo non è più valido");
                 return res;
             } else {
