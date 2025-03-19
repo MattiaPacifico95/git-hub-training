@@ -17,8 +17,8 @@ import java.util.List;
 @Service
 public class CatalogoProdottoService {
 
-    private CatalogoDao catDao;
-    private ProdottoDao prodDao;
+    private CatalogoDao catalogoDao;
+    private ProdottoDao prodottoDao;
     private CatalogoProdottoDao catProdDao;
 
     public CatalogoProdottoService(CatalogoProdottoDao catProdDao){
@@ -47,12 +47,12 @@ public class CatalogoProdottoService {
 
     public boolean aggiungiProdAlCat(Long idProdotto, Long idCatalogo){
 
-        ProdottoEntity prod = prodDao.findById(idProdotto);
-        CatalogoEntity cat = catDao.findById(idCatalogo);
+        /*ProdottoEntity prod = prodottoDao.findById(idProdotto);
+        CatalogoEntity cat = catalogoDao.findById(idCatalogo);
         if(prod.getIdProdotto()==null || cat.getIdCatalogo()==null){
             System.out.println("Prodotto o catalogo non esistenti.");
             return false;
-        }
+        }*/
         CatalogoProdottoEntity catProd = catProdDao.findByIdCatProd(idCatalogo, idProdotto);
         if(catProd.getIdCatalogo().equals(idCatalogo) && catProd.getIdProdotto().equals(idProdotto)){
             System.out.println("Questo prodotto si trova già nel catalogo.");

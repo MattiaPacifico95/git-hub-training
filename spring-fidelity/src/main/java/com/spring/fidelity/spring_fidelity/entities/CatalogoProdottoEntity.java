@@ -26,14 +26,14 @@ public class CatalogoProdottoEntity {
             name = "id_catalogo",
             referencedColumnName = "id_catalogo"
     )
-    private catalogoEntity catalogo;
+    private CatalogoEntity catalogo;
 
     @ManyToOne
     @JoinColumn(
             name = "id_prodotto",
             referencedColumnName = "id_prodotto"
     )
-    private prodottoEntity prodotto;
+    private ProdottoEntity prodotto;
 
 
     public CatalogoProdottoEntity() {
