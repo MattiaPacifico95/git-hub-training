@@ -1,4 +1,4 @@
-package Services;
+package com.spring.fidelity.spring_fidelity.services;
 
 import com.spring.fidelity.spring_fidelity.daos.CredentialManagerDao;
 import org.springframework.beans.factory.annotation.Autowired;
