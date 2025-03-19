@@ -1,6 +1,6 @@
 package Services;
 
-import daos.CredentialManagerDao;
+import com.spring.fidelity.spring_fidelity.daos.CredentialManagerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
