@@ -23,7 +23,7 @@ public class TesseraService {
     UserEntity user;
     tesseraDao tesseraDao;
 //    ProdottoDao prodottoDao
-//    CatalogoDao catalogoDao
+    CatalogoDao catalogoDao;
 
     //verifica che il saldo punti sia >= al totale dei prodotti
     // selezionati
@@ -38,7 +38,7 @@ public class TesseraService {
             return res;
         } else {
 
-            CatalogoEntity catalogo = CatalogoDao.findById(idCatalogo);
+            CatalogoEntity catalogo = catalogoDao.findById(idCatalogo);
             //Da ricontrollare con CatalagoDao
             if(catalogo.getFineOfferta() < Timestamp.valueOf(LocalDateTime.now())){
                 System.out.println("il catalogo non è più valido");
