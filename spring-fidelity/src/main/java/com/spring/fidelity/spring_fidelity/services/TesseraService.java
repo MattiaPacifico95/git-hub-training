@@ -1,7 +1,9 @@
 package com.spring.fidelity.spring_fidelity.services;
 
+import com.spring.fidelity.spring_fidelity.daos.CatalogoDao;
 import com.spring.fidelity.spring_fidelity.daos.UserDao;
 import com.spring.fidelity.spring_fidelity.daos.tesseraDao;
+import com.spring.fidelity.spring_fidelity.entities.CatalogoEntity;
 import com.spring.fidelity.spring_fidelity.entities.TesseraEntity;
 import com.spring.fidelity.spring_fidelity.entities.UserEntity;
 
@@ -33,7 +35,8 @@ public class TesseraService {
             System.out.println("l'utente non ha il ruolo corretto");
             return res;
         } else {
-            CatalogoEntity catalogo = catalogoDao.findById(idCatalogo);
+
+            CatalogoEntity catalogo = CatalogoDao.findById(idCatalogo);
             //Da ricontrollare con CatalagoDao
             if(catalogo.getFineOfferta() < Timestamp.valueOf(LocalDateTime.now())){
                 System.out.println("il catalogo non è più valido");
