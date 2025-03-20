@@ -2,8 +2,8 @@ package com.spring.fidelity.spring_fidelity.services;
 
 import com.spring.fidelity.spring_fidelity.daos.ProdottoDao;
 import com.spring.fidelity.spring_fidelity.daos.UserDao;
-import com.spring.fidelity.spring_fidelity.entities.ProdottoEntity;
-import com.spring.fidelity.spring_fidelity.entities.UserEntity;
+import com.spring.fidelity.spring_fidelity.model.entities.ProdottoEntity;
+import com.spring.fidelity.spring_fidelity.model.entities.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;

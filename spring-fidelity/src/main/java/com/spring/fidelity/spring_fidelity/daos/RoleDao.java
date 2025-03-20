@@ -1,12 +1,8 @@
 package com.spring.fidelity.spring_fidelity.daos;
 
-import com.spring.fidelity.spring_fidelity.entities.RoleEntity;
-import com.spring.fidelity.spring_fidelity.entities.UserEntity;
-import jakarta.persistence.JoinTable;
+import com.spring.fidelity.spring_fidelity.model.entities.RoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.NativeQuery;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
 @Repository

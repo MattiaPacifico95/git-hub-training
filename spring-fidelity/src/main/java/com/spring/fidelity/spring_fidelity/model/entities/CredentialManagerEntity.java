@@ -1,4 +1,4 @@
-package com.spring.fidelity.spring_fidelity.entities;
+package com.spring.fidelity.spring_fidelity.model.entities;
 
 import jakarta.persistence.*;
 import java.sql.Timestamp;

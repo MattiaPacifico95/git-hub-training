@@ -1,16 +1,11 @@
 package com.spring.fidelity.spring_fidelity.services;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import com.spring.fidelity.spring_fidelity.daos.CatalogoDao;
-import com.spring.fidelity.spring_fidelity.entities.CatalogoEntity;
-import org.springframework.data.jpa.repository.Query;
+import com.spring.fidelity.spring_fidelity.model.entities.CatalogoEntity;
 import org.springframework.stereotype.Service;
 
 @Service

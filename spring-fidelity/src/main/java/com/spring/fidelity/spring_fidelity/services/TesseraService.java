@@ -3,16 +3,15 @@ package com.spring.fidelity.spring_fidelity.services;
 import com.spring.fidelity.spring_fidelity.daos.CatalogoDao;
 import com.spring.fidelity.spring_fidelity.daos.UserDao;
 import com.spring.fidelity.spring_fidelity.daos.tesseraDao;
-import com.spring.fidelity.spring_fidelity.entities.CatalogoEntity;
-import com.spring.fidelity.spring_fidelity.entities.ProdottoEntity;
-import com.spring.fidelity.spring_fidelity.entities.TesseraEntity;
-import com.spring.fidelity.spring_fidelity.entities.UserEntity;
+import com.spring.fidelity.spring_fidelity.model.entities.CatalogoEntity;
+import com.spring.fidelity.spring_fidelity.model.entities.ProdottoEntity;
+import com.spring.fidelity.spring_fidelity.model.entities.TesseraEntity;
+import com.spring.fidelity.spring_fidelity.model.entities.UserEntity;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 public class TesseraService {
     public TesseraService() {

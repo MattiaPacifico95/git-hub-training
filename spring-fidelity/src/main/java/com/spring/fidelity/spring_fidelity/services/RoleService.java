@@ -2,15 +2,11 @@ package com.spring.fidelity.spring_fidelity.services;
 
 import com.spring.fidelity.spring_fidelity.daos.RoleDao;
 import com.spring.fidelity.spring_fidelity.daos.UserDao;
-import com.spring.fidelity.spring_fidelity.entities.RoleEntity;
-import com.spring.fidelity.spring_fidelity.entities.UserEntity;
-import jakarta.persistence.JoinTable;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
+import com.spring.fidelity.spring_fidelity.model.entities.RoleEntity;
+import com.spring.fidelity.spring_fidelity.model.entities.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-import java.util.Optional;
 
 // Recupero Id utente
 @Service
