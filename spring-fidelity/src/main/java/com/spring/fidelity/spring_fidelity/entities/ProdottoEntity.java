@@ -3,6 +3,7 @@ package com.spring.fidelity.spring_fidelity.entities;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -31,6 +32,9 @@ public class ProdottoEntity {
 
     @Column(name = "flag_cancellato")
     private boolean flagCancellato;
+
+    @ManyToMany(mappedBy = "prodottiCatalogo")
+    List<CatalogoEntity> presenteInCataloghi;
 
     public ProdottoEntity() {
     }
