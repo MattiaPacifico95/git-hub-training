@@ -62,6 +62,10 @@ public class CatalogoService {
     public void aggiungiProdottoInCatalogo (Long idProdotto, Long idCatalogo) {
         ProdottoEntity prod = prodottoDao.findByID(idProdotto);
         CatalogoEntity cat = catDao.findByID(idCatalogo);
+        if(prod.getIdProdotto()!=idProdotto || cat.getIdCatalogo()!=idCatalogo){
+            System.out.println("Prodotto o catalogo non esistenti.");
+            return;
+        }
         cat.getProdottiCatalogo().add(prod);
         catDao.save(cat);
     }
