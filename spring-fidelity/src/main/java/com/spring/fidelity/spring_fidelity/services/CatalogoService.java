@@ -70,6 +70,15 @@ public class CatalogoService {
         catDao.save(cat);
     }
 
+    public void rimuoviProdottoDaCatalogo(Long idProdotto, Long idCatalogo){
+        ProdottoEntity prod = prodottoDao.findByID(idProdotto);
+        CatalogoEntity cat = catDao.findByID(idCatalogo);
+        if(prod.getIdProdotto()!=idProdotto || cat.getIdCatalogo()!=idCatalogo){
+            System.out.println("Prodotto o catalogo non esistenti.");
+            return;
+        }
+        catDao.rimuoviCatProd(idCatalogo, idProdotto);
+    }
 
 
 }

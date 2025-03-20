@@ -16,4 +16,7 @@ public interface CatalogoDao extends JpaRepository<CatalogoEntity,Long> {
 
     @NativeQuery("SELECT id_prodotto FROM catalogo_prodotto WHERE id_catalogo = ?1")
     public List<Long> listProdInCat(long idCatalogo);
+
+    @NativeQuery("DELETE FROM catalogo_prodotto WHERE id_catalogo = ?1 AND id_prodotto = ?2")
+    public void rimuoviCatProd(long idCatalogo, long idProdotto);
 }
