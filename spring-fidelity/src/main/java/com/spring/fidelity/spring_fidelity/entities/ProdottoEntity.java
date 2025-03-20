@@ -34,7 +34,7 @@ public class ProdottoEntity {
     private boolean flagCancellato;
 
     @ManyToMany(mappedBy = "prodottiCatalogo")
-    List<CatalogoEntity> presenteInCataloghi;
+    private List<CatalogoEntity> presenteInCataloghi;
 
     public ProdottoEntity() {
     }
@@ -93,6 +93,10 @@ public class ProdottoEntity {
 
     public void setDataCreazione(Timestamp dataCreazione) {
         this.dataCreazione = dataCreazione;
+    }
+
+    public List<CatalogoEntity> getListaCataloghi() {
+        return presenteInCataloghi;
     }
 
     @Override

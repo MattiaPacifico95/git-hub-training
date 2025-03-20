@@ -59,6 +59,13 @@ public class CatalogoService {
         return listaProdotti;
     }
 
+    public void aggiungiProdottoInCatalogo (Long idProdotto, Long idCatalogo) {
+        ProdottoEntity prod = prodottoDao.findByID(idProdotto);
+        CatalogoEntity cat = catalogoDao.findByID(idCatalogo);
+        cat.getProdottiCatalogo().add(prod);
+        catalogoDao.save(cat);
+    }
+
 
 
 }

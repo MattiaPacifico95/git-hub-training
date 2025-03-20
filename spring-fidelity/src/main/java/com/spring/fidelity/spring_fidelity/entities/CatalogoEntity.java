@@ -35,7 +35,7 @@ public class CatalogoEntity {
             joinColumns=@JoinColumn(name = "id_catalogo"),
             inverseJoinColumns = @JoinColumn(name = "id_prodotto")
     )
-    List<ProdottoEntity> prodottiCatalogo;
+    private List<ProdottoEntity> prodottiCatalogo;
 
     public CatalogoEntity(){
 
@@ -79,6 +79,10 @@ public class CatalogoEntity {
 
     public void setFlagCancellato(boolean flagCancellato) {
         this.flagCancellato = flagCancellato;
+    }
+
+    public List<ProdottoEntity> getProdottiCatalogo() {
+        return prodottiCatalogo;
     }
 
     @Override
