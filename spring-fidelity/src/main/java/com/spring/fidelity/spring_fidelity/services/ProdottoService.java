@@ -25,7 +25,7 @@ public class ProdottoService {
         boolean res = false;
         UserEntity user = userDao.findBy(idUtente);
         if(user.getIdRuolo() == 1){
-            System.out.println("l'utente non ha il tuolo necessario per compiere la richiesta");
+            System.out.println("l'utente non ha il ruolo necessario per compiere la richiesta");
             return res;
         } else {
             prodottoDao.updateProdotto(prodotto.getNome(),prodotto.getDescrizione(), prodotto.getPunti(), prodotto.getDataCreazione());
