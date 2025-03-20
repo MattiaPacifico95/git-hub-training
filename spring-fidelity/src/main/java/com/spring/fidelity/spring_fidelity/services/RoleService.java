@@ -56,7 +56,7 @@ public class RoleService {
             System.out.println("l'utente non ha il ruolo valido per eseguire l'operazione");
             return false;
         }
-        else{
+        else {
             // Update della tabella nome ruolo
             RoleEntity ruoloDaModificare = roleDao.findByID(utenteTrovato.getIdRuolo());
             roleDao.update(nuovoNomeRuolo, ruoloDaModificare.getIdRuolo());
