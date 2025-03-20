@@ -6,8 +6,12 @@ import java.security.Timestamp;
 
 @Data
 public class ProdottoDto {
-    private String nome;
-    private String descrizione;
-    private int Punti;
-    //private Timestamp DataCreazione;
+
+    public long prodottoId;
+    public String nomeProd;
+    public String descrizioneProd;
+    public String immagineProd;
+    public int PuntiProd;
+    public boolean FlagCancellazione;
+
 }
